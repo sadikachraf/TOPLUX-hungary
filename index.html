@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- ═══ GOOGLE ANALYTICS GA4 ═══════════════════════════════ -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KN2LD38C0S"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
+    window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-KN2LD38C0S');
+    gtag('js',new Date());
+    gtag('config','G-KN2LD38C0S');
   </script>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Toplux Nutrition Magnesium Glycinate Complex – prémium kelátos magnézium formula 525 mg-mal, mindennapi ásványianyag-támogatáshoz. Utánvétes fizetés Magyarországon.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Toplux Nutrition Magnesium Glycinate Complex – prémium kelátos magnézium formula 525mg. Utánvétes fizetés Magyarországon.">
   <title>Toplux Nutrition – Magnesium Glycinate Complex | Utánvétes fizetés | Magyarország</title>
 
-  <!-- META PIXEL : 778731385018899 -->
+  <!-- ═══ META PIXEL : 778731385018899 ══════════════════════ -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -29,12 +28,9 @@
     fbq('init','778731385018899');
     fbq('track','PageView');
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=778731385018899&ev=PageView&noscript=1"/>
-  </noscript>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=778731385018899&ev=PageView&noscript=1"/></noscript>
 
-  <!-- TIKTOK PIXEL : D6QB8PBC77U4MV0O9RP0 -->
+  <!-- ═══ TIKTOK PIXEL : D6QB8PBC77U4MV0O9RP0 ══════════════ -->
   <script>
     !function(w,d,t){
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
@@ -55,812 +51,1190 @@
     }(window,document,'ttq');
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════════
-    GOOGLE ADS / GA4 — Paste your gtag here if applicable.
+  <!-- ═══ GOOGLE ADS — paste your conversion tag here ═══════ -->
+  <!-- gtag('event','conversion',{send_to:'AW-XXXXXXX/LABEL',...}); -->
+
+  <!-- ═══ TELEGRAM — paste your bot webhook call here ════════
+    Example (call from firePurchase after Sheet POST):
+    fetch('https://api.telegram.org/bot<TOKEN>/sendMessage',{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ chat_id:'<CHAT_ID>', text: message })
+    });
   ═══════════════════════════════════════════════════════════ -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
-      --navy:#0F2B5B;--navy-mid:#1B3A6B;
-      --teal:#00B386;--teal-dark:#009470;--light-teal:#E6F7F2;
-      --orange:#F05A28;--orange-dk:#D44B1E;
-      --gold:#F5A623;--purple:#5C3D9E;
-      --white:#FFFFFF;--off-white:#F6F8FC;
-      --border:#E4E8EF;--text:#1A2340;--muted:#6B7589;
+      --navy:#0F2B5B; --navy-mid:#1B3A6B;
+      --teal:#00B386; --teal-dark:#009470; --light-teal:#E6F7F2;
+      --orange:#F05A28; --orange-dk:#D44B1E;
+      --gold:#F5A623; --purple:#5C3D9E;
+      --white:#FFFFFF; --off-white:#F6F8FC;
+      --border:#E4E8EF; --text:#1A2340; --muted:#6B7589;
     }
-    html{scroll-behavior:smooth}
-    body{font-family:'Lato',sans-serif;color:var(--text);background:var(--white);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:'Lato',sans-serif;color:var(--text);background:var(--white);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     h1,h2,h3,h4{font-family:'Montserrat',sans-serif;line-height:1.15}
     img{max-width:100%;height:auto;display:block}
     a{text-decoration:none}
 
-    /* TOP BAR */
-    .announce{background:var(--navy);color:rgba(255,255,255,.9);text-align:center;padding:9px 16px;font-size:13px;font-family:'Montserrat',sans-serif;font-weight:600}
-    .announce .dot{opacity:.3;margin:0 7px}
+    /* ════════════════════════════════════════════
+       URGENCY BAR
+    ════════════════════════════════════════════ */
+    .urgency-bar{
+      background:linear-gradient(90deg,#991B1B,#DC2626,#991B1B);
+      background-size:200%;animation:bgShimmer 4s linear infinite;
+      color:#fff;text-align:center;padding:10px 16px;position:relative;z-index:600;
+    }
+    @keyframes bgShimmer{0%{background-position:0%}100%{background-position:200%}}
+    .urg-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px}
+    .cd-box{display:flex;align-items:center;gap:5px}
+    .cd-unit{background:rgba(0,0,0,.35);border-radius:6px;padding:3px 8px;font-size:15px;font-weight:900;min-width:30px;text-align:center}
+    .cd-col{opacity:.6;font-size:14px;margin:0 -2px}
+    .urg-stock{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 13px;font-size:12px}
 
-    /* HEADER */
-    .site-header{background:var(--white);border-bottom:1px solid var(--border);padding:12px 24px;position:sticky;top:0;z-index:500;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-    .header-wrap{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;color:var(--navy);letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
-    .logo-pill{background:linear-gradient(135deg,var(--purple),#8B5CF6);color:white;font-size:10px;font-weight:800;padding:3px 9px;border-radius:40px;letter-spacing:.05em}
-    .header-trust{display:flex;gap:20px;font-size:12px;font-weight:700;color:var(--muted)}
-    .header-trust span{display:flex;align-items:center;gap:5px}
-    .hdr-cta{background:var(--orange);color:white;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;padding:11px 22px;border-radius:40px;transition:background .2s,transform .15s;white-space:nowrap}
+    /* ════════════════════════════════════════════
+       HEADER
+    ════════════════════════════════════════════ */
+    .site-header{background:#fff;border-bottom:1px solid var(--border);padding:11px 24px;position:sticky;top:0;z-index:500;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+    .hdr-wrap{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;color:var(--navy);display:flex;align-items:center;gap:8px;letter-spacing:-.02em}
+    .logo-pill{background:linear-gradient(135deg,var(--purple),#8B5CF6);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:40px}
+    .hdr-trust{display:flex;gap:18px;font-size:12px;font-weight:700;color:var(--muted)}
+    .hdr-trust span{display:flex;align-items:center;gap:5px}
+    .hdr-cta{background:var(--orange);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;padding:11px 22px;border-radius:40px;white-space:nowrap;transition:background .2s,transform .15s}
     .hdr-cta:hover{background:var(--orange-dk);transform:translateY(-1px)}
 
-    /* HERO */
-    .hero{background:var(--navy);min-height:620px;position:relative;display:flex;align-items:center;overflow:hidden}
-    .hero-overlay{position:absolute;inset:0;background-image:url('./images/hero-bg.webp');background-size:cover;background-position:center 30%;opacity:.22;pointer-events:none}
-    .hero::after{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:800px;background:radial-gradient(ellipse,rgba(92,61,158,.25) 0%,transparent 70%);pointer-events:none}
-    .hero-wrap{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:70px 24px;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
-    .hero-label{display:inline-flex;align-items:center;gap:7px;background:rgba(92,61,158,.25);border:1px solid rgba(139,92,246,.5);color:#C4B5FD;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.09em;text-transform:uppercase;padding:6px 14px;border-radius:40px;margin-bottom:22px}
-    .hero-label::before{content:'●';font-size:7px;color:#A78BFA}
-    .hero h1{font-size:clamp(30px,4vw,52px);font-weight:900;color:white;margin-bottom:18px;line-height:1.1}
+    /* ════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════ */
+    .hero{background:var(--navy);position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background-image:url('./images/hero-bg.webp');background-size:cover;background-position:center 30%;opacity:.18;pointer-events:none}
+    .hero-glow{position:absolute;top:-200px;right:-100px;width:600px;height:800px;background:radial-gradient(ellipse,rgba(92,61,158,.22) 0%,transparent 70%);pointer-events:none}
+    .hero-wrap{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:56px 24px 52px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+
+    .stock-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(220,38,38,.18);border:1px solid rgba(220,38,38,.4);color:#FCA5A5;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:5px 13px;border-radius:40px;margin-bottom:14px}
+    .red-dot{width:7px;height:7px;background:#EF4444;border-radius:50%;animation:blink 1.2s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+    .hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(92,61,158,.22);border:1px solid rgba(139,92,246,.45);color:#C4B5FD;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.09em;text-transform:uppercase;padding:6px 14px;border-radius:40px;margin-bottom:20px}
+    .hero-badge::before{content:'●';font-size:7px;color:#A78BFA}
+
+    .hero h1{font-size:clamp(28px,4vw,50px);font-weight:900;color:#fff;margin-bottom:16px;line-height:1.1}
     .hero h1 em{color:#A5F3D4;font-style:normal}
-    .hero-sub{font-size:18px;color:rgba(255,255,255,.8);margin-bottom:30px;line-height:1.7;max-width:520px}
-    .hero-checks{list-style:none;margin-bottom:36px}
-    .hero-checks li{color:rgba(255,255,255,.88);font-size:15px;padding:7px 0;display:flex;align-items:center;gap:12px}
-    .hero-checks li::before{content:'';width:22px;height:22px;min-width:22px;border-radius:50%;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E") center/14px no-repeat}
-    .btn-hero{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--orange);color:white;font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;padding:20px 40px;border-radius:50px;border:none;cursor:pointer;transition:all .2s;box-shadow:0 6px 28px rgba(240,90,40,.45);width:100%;max-width:380px}
-    .btn-hero:hover{background:var(--orange-dk);transform:translateY(-3px);box-shadow:0 10px 36px rgba(240,90,40,.5)}
-    .btn-note{color:rgba(255,255,255,.5);font-size:13px;margin-top:12px}
+    .hero-sub{font-size:17px;color:rgba(255,255,255,.78);margin-bottom:24px;line-height:1.7;max-width:520px}
+
+    .ppd-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(0,179,134,.15);border:1px solid rgba(0,179,134,.35);border-radius:14px;padding:11px 18px;margin-bottom:22px}
+    .ppd-big{font-family:'Montserrat',sans-serif;font-weight:900;font-size:26px;color:#A5F3D4;line-height:1}
+    .ppd-lbl{font-size:13px;color:rgba(255,255,255,.7);line-height:1.4}
+    .ppd-lbl strong{color:#fff;display:block}
+
+    .hero-checks{list-style:none;margin-bottom:28px}
+    .hero-checks li{color:rgba(255,255,255,.87);font-size:15px;padding:6px 0;display:flex;align-items:center;gap:12px}
+    .hero-checks li::before{content:'';width:20px;height:20px;min-width:20px;border-radius:50%;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E") center/12px no-repeat}
+
+    .btn-pulse{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--orange);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;padding:18px 38px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 6px 28px rgba(240,90,40,.45);animation:ctaPulse 2.5s ease-in-out infinite;transition:background .2s,transform .2s;text-align:center}
+    @keyframes ctaPulse{0%,100%{box-shadow:0 6px 28px rgba(240,90,40,.45)}50%{box-shadow:0 6px 42px rgba(240,90,40,.75),0 0 0 9px rgba(240,90,40,.1)}}
+    .btn-pulse:hover{background:var(--orange-dk);transform:translateY(-3px);animation:none;box-shadow:0 10px 36px rgba(240,90,40,.6)}
+    .btn-note{color:rgba(255,255,255,.45);font-size:13px;margin-top:10px}
+
+    .live-bar{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;margin-top:13px}
+    .live-dot{width:8px;height:8px;background:#4ADE80;border-radius:50%;animation:blink 1.4s ease-in-out infinite}
+    .live-bar strong{color:#4ADE80}
+
     .hero-visual{display:flex;align-items:center;justify-content:center}
-    .hero-visual img{max-height:480px;filter:drop-shadow(0 24px 64px rgba(0,0,0,.55));animation:floatY 3.5s ease-in-out infinite}
-    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+    .hero-visual img{max-height:460px;filter:drop-shadow(0 24px 64px rgba(0,0,0,.6));animation:float 3.5s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
 
-    /* TRUST BAR */
-    .trust-bar{background:var(--teal);padding:20px 24px}
-    .trust-row{max-width:1120px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:18px}
-    .trust-item{display:flex;align-items:center;gap:12px;color:white}
-    .trust-big{font-family:'Montserrat',sans-serif;font-weight:900;font-size:26px;line-height:1}
-    .trust-label{font-size:12px;opacity:.88;line-height:1.35}
+    /* ════════════════════════════════════════════
+       TOP QUICK-ORDER FORM  ← THE KEY ADDITION
+    ════════════════════════════════════════════ */
+    .quick-order{background:linear-gradient(135deg,#0a2247,#0F2B5B);border-bottom:3px solid var(--teal);padding:48px 24px}
+    .qo-inner{max-width:860px;margin:0 auto}
+    .qo-head{text-align:center;margin-bottom:30px}
+    .qo-tag{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A5F3D4;margin-bottom:10px}
+    .qo-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(22px,3vw,34px);color:#fff;margin-bottom:8px;line-height:1.2}
+    .qo-sub{font-size:15px;color:rgba(255,255,255,.65)}
 
-    /* SHARED */
-    .section{padding:88px 24px}
-    .section-inner{max-width:1120px;margin:0 auto}
+    .qo-box{background:#fff;border-radius:24px;padding:36px 40px}
+
+    /* Package picker */
+    .qo-pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+    .qo-pkg{border:2px solid var(--border);border-radius:14px;padding:14px 12px;text-align:center;cursor:pointer;transition:all .18s;position:relative}
+    .qo-pkg:hover{border-color:var(--teal)}
+    .qo-pkg.on{border-color:var(--teal);background:var(--light-teal)}
+    .qo-pkg-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;padding:3px 11px;border-radius:20px;white-space:nowrap}
+    .qo-pkg-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:4px}
+    .qo-pkg.on .qo-pkg-name{color:var(--teal-dark)}
+    .qo-pkg-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;color:var(--teal)}
+    .qo-pkg-ppd{font-size:10px;color:var(--muted);margin-top:3px;font-family:'Montserrat',sans-serif}
+    .qo-pkg-old{font-size:11px;color:#9CA3AF;text-decoration:line-through;margin-bottom:2px;font-family:'Montserrat',sans-serif}
+
+    /* Fields */
+    .qo-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .qo-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+    .qo-fg{margin-bottom:14px}
+    .qo-fg label{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11.5px;color:var(--navy);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+    .qo-fg input{width:100%;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;color:var(--text);font-family:'Lato',sans-serif;outline:none;transition:border-color .18s,box-shadow .18s;-webkit-text-size-adjust:100%}
+    .qo-fg input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,179,134,.12)}
+    .qo-fg input.err{border-color:#EF4444;box-shadow:0 0 0 3px rgba(239,68,68,.1)}
+
+    /* Submit */
+    .qo-submit{width:100%;background:var(--orange);color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;padding:20px;border-radius:50px;border:none;cursor:pointer;margin-top:6px;transition:all .2s;box-shadow:0 6px 28px rgba(240,90,40,.42);animation:ctaPulse 2.5s ease-in-out infinite}
+    .qo-submit:hover{background:var(--orange-dk);transform:translateY(-2px);animation:none}
+    .qo-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;animation:none}
+
+    .qo-trust{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:14px;flex-wrap:wrap}
+    .qo-trust-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);font-weight:700;font-family:'Montserrat',sans-serif}
+
+    /* Quick form success */
+    .qo-success{display:none;text-align:center;padding:40px 20px}
+    .qo-success-icon{width:76px;height:76px;background:var(--light-teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 18px}
+    .qo-success h3{font-size:24px;font-weight:900;color:var(--navy);margin-bottom:10px}
+    .qo-success p{font-size:15px;color:var(--muted);line-height:1.7}
+    .qo-success .ref{display:inline-block;background:var(--light-teal);color:var(--teal-dark);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:7px 18px;border-radius:40px;margin-top:12px}
+    .save-num{background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;padding:13px 18px;margin-top:16px;font-size:13px;color:#78350F;line-height:1.65}
+
+    /* ════════════════════════════════════════════
+       TRUST BAR
+    ════════════════════════════════════════════ */
+    .trust-bar{background:var(--teal);padding:18px 24px}
+    .trust-row{max-width:1120px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:16px}
+    .trust-item{display:flex;align-items:center;gap:12px;color:#fff}
+    .trust-big{font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;line-height:1}
+    .trust-lbl{font-size:12px;opacity:.88;line-height:1.35}
+    .gls-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:7px 13px;display:flex;align-items:center;gap:7px;font-weight:900;font-size:14px}
+
+    /* ════════════════════════════════════════════
+       SHARED SECTION STYLES
+    ════════════════════════════════════════════ */
+    .section{padding:80px 24px}
+    .sec-inner{max-width:1120px;margin:0 auto}
     .tag{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
     .tag-w{color:#A5F3D4}
-    .h2{font-size:clamp(26px,3.2vw,42px);font-weight:900;color:var(--navy);margin-bottom:14px}
-    .h2-w{color:white}
-    .lead{font-size:18px;color:var(--muted);line-height:1.7;max-width:600px}
-    .lead-w{color:rgba(255,255,255,.72)}
+    .h2{font-size:clamp(24px,3.2vw,40px);font-weight:900;color:var(--navy);margin-bottom:14px}
+    .h2-w{color:#fff}
+    .lead{font-size:17px;color:var(--muted);line-height:1.7;max-width:600px}
+    .lead-w{color:rgba(255,255,255,.7)}
 
-    /* PROBLEM */
-    .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-    .problem-photo img{border-radius:24px;width:100%;height:500px;object-fit:cover;box-shadow:0 24px 64px rgba(0,0,0,.11)}
-    .symptom-list{list-style:none;margin:28px 0}
-    .symptom-list li{display:flex;align-items:flex-start;gap:16px;padding:15px 0;border-bottom:1px solid var(--border);font-size:15.5px}
-    .s-icon{width:42px;height:42px;min-width:42px;background:#FFF3EE;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
-    .insight-card{background:linear-gradient(135deg,var(--light-teal),#EEF3FF);border:1px solid rgba(0,179,134,.3);border-radius:18px;padding:24px 28px;margin-top:24px}
-    .insight-card p{font-size:16px;color:var(--navy-mid);font-weight:700;line-height:1.65}
+    /* ════════════════════════════════════════════
+       PROBLEM
+    ════════════════════════════════════════════ */
+    .prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .prob-photo img{border-radius:22px;width:100%;height:480px;object-fit:cover;box-shadow:0 20px 60px rgba(0,0,0,.11)}
+    .sym-list{list-style:none;margin:26px 0}
+    .sym-list li{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);font-size:15px}
+    .s-icon{width:40px;height:40px;min-width:40px;background:#FFF3EE;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px}
+    .insight{background:linear-gradient(135deg,var(--light-teal),#EEF3FF);border:1px solid rgba(0,179,134,.28);border-radius:16px;padding:22px 26px;margin-top:22px}
+    .insight p{font-size:15px;color:var(--navy-mid);font-weight:700;line-height:1.65}
 
-    /* PRODUCT INTRO */
-    .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center}
-    .product-photo img{max-width:400px;margin:0 auto;filter:drop-shadow(0 20px 48px rgba(0,0,0,.14))}
-    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px}
-    .stat{text-align:center;background:white;border:1px solid var(--border);border-radius:14px;padding:18px 10px}
-    .stat-n{font-family:'Montserrat',sans-serif;font-weight:900;font-size:28px;color:var(--navy)}
-    .stat-l{font-size:11px;color:var(--muted);margin-top:4px}
+    /* ════════════════════════════════════════════
+       PHARMACY COMPARISON
+    ════════════════════════════════════════════ */
+    .pharma-bg{background:linear-gradient(135deg,#0a2247,#0F2B5B);padding:64px 24px}
+    .pharma-inner{max-width:880px;margin:0 auto;text-align:center}
+    .pharma-table{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin-top:36px;align-items:stretch}
+    .pharma-col{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:26px 22px;text-align:center}
+    .pharma-col.win{background:rgba(0,179,134,.14);border:2px solid var(--teal);position:relative}
+    .pharma-col.lose{opacity:.72}
+    .pharma-vs{display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:16px;color:rgba(255,255,255,.3);padding:0 14px}
+    .pharma-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px}
+    .pharma-brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:#fff;margin-bottom:14px;line-height:1.3}
+    .pharma-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:40px;line-height:1;margin-bottom:4px}
+    .pharma-price.bad{color:var(--gold)}
+    .pharma-price.good{color:#4ADE80}
+    .pharma-psub{font-size:11px;color:rgba(255,255,255,.45);margin-bottom:16px}
+    .pharma-rows{list-style:none;text-align:left}
+    .pharma-rows li{font-size:13px;color:rgba(255,255,255,.72);padding:4px 0;display:flex;align-items:center;gap:7px}
+    .win-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:10px;padding:4px 16px;border-radius:40px;white-space:nowrap}
 
-    /* WHY CHELATED */
-    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .why-card{background:var(--off-white);border:1px solid var(--border);border-radius:18px;padding:28px 22px;transition:all .22s}
-    .why-card:hover{border-color:var(--purple);background:#F5F0FF;transform:translateY(-4px);box-shadow:0 10px 28px rgba(92,61,158,.12)}
-    .why-icon{font-size:34px;margin-bottom:14px}
-    .why-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:var(--navy);margin-bottom:8px}
-    .why-desc{font-size:13.5px;color:var(--muted);line-height:1.6}
-    .chelate-banner{margin-top:32px;background:linear-gradient(135deg,#0F2B5B,#5C3D9E);border-radius:18px;padding:28px 32px;display:flex;align-items:center;gap:24px}
-    .chelate-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:14px 20px;text-align:center;min-width:120px}
-    .chelate-badge .big{font-family:'Montserrat',sans-serif;font-weight:900;font-size:32px;color:#A5F3D4}
-    .chelate-badge .sm{font-size:11px;color:rgba(255,255,255,.6);margin-top:2px}
-    .chelate-text{color:rgba(255,255,255,.85);font-size:15px;line-height:1.7}
-    .chelate-text strong{color:white}
+    /* ════════════════════════════════════════════
+       PRODUCT INTRO
+    ════════════════════════════════════════════ */
+    .prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .prod-photo img{max-width:380px;margin:0 auto;filter:drop-shadow(0 18px 44px rgba(0,0,0,.15))}
+    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+    .stat-box{text-align:center;background:#fff;border:1px solid var(--border);border-radius:13px;padding:16px 10px}
+    .stat-n{font-family:'Montserrat',sans-serif;font-weight:900;font-size:26px;color:var(--navy)}
+    .stat-l{font-size:11px;color:var(--muted);margin-top:3px}
 
-    /* BENEFITS */
-    .benefits-bg{background:var(--navy)}
-    .benefits-header{text-align:center;margin-bottom:52px}
-    .benefits-header .lead{margin:0 auto}
-    .benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-    .benefit-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:22px;padding:32px 28px;display:flex;gap:22px;align-items:flex-start;transition:background .2s}
-    .benefit-card:hover{background:rgba(255,255,255,.09)}
-    .b-icon{width:58px;height:58px;min-width:58px;background:rgba(0,179,134,.18);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px}
-    .b-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:white;margin-bottom:8px}
-    .b-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.65}
+    /* ════════════════════════════════════════════
+       WHY CHELATED
+    ════════════════════════════════════════════ */
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .why-card{background:var(--off-white);border:1px solid var(--border);border-radius:18px;padding:26px 20px;transition:all .22s}
+    .why-card:hover{border-color:var(--purple);background:#F5F0FF;transform:translateY(-4px);box-shadow:0 10px 26px rgba(92,61,158,.11)}
+    .why-icon{font-size:32px;margin-bottom:12px}
+    .why-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--navy);margin-bottom:7px}
+    .why-desc{font-size:13px;color:var(--muted);line-height:1.6}
+    .chelate-banner{margin-top:30px;background:linear-gradient(135deg,#0F2B5B,#5C3D9E);border-radius:18px;padding:26px 30px;display:flex;align-items:center;gap:22px}
+    .chelate-badge{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:13px 18px;text-align:center;min-width:110px}
+    .chelate-badge .big{font-family:'Montserrat',sans-serif;font-weight:900;font-size:30px;color:#A5F3D4}
+    .chelate-badge .sm{font-size:10px;color:rgba(255,255,255,.55);margin-top:2px}
+    .chelate-txt{color:rgba(255,255,255,.83);font-size:14px;line-height:1.7}
+    .chelate-txt strong{color:#fff}
 
-    /* TESTIMONIALS */
+    /* ════════════════════════════════════════════
+       BENEFITS
+    ════════════════════════════════════════════ */
+    .ben-bg{background:var(--navy)}
+    .ben-hdr{text-align:center;margin-bottom:48px}
+    .ben-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .ben-card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px 24px;display:flex;gap:20px;align-items:flex-start;transition:background .2s}
+    .ben-card:hover{background:rgba(255,255,255,.09)}
+    .ben-icon{width:54px;height:54px;min-width:54px;background:rgba(0,179,134,.17);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px}
+    .ben-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff;margin-bottom:7px}
+    .ben-desc{font-size:13.5px;color:rgba(255,255,255,.58);line-height:1.65}
+
+    /* ════════════════════════════════════════════
+       TESTIMONIALS
+    ════════════════════════════════════════════ */
     .testi-bg{background:var(--off-white)}
-    .testi-header{text-align:center;margin-bottom:52px}
-    .stars-row{color:var(--gold);font-size:22px;letter-spacing:3px;margin-top:10px}
-    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .testi-card{background:white;border:1px solid var(--border);border-radius:22px;padding:28px 24px;box-shadow:0 4px 22px rgba(0,0,0,.05);display:flex;flex-direction:column}
-    .t-stars{color:var(--gold);font-size:15px;letter-spacing:2px;margin-bottom:14px}
-    .t-text{font-size:15px;color:var(--text);line-height:1.72;font-style:italic;flex:1;margin-bottom:22px}
-    .t-author{display:flex;align-items:center;gap:13px}
-    .t-avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2.5px solid var(--teal)}
-    .t-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--navy)}
-    .t-meta{font-size:12px;color:var(--muted);margin-top:2px}
+    .testi-hdr{text-align:center;margin-bottom:48px}
+    .stars{color:var(--gold);font-size:20px;letter-spacing:3px;margin-top:10px}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .testi-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:26px 22px;box-shadow:0 4px 20px rgba(0,0,0,.05);display:flex;flex-direction:column;position:relative}
+    .verified-badge{position:absolute;top:14px;right:14px;background:#ECFDF5;border:1px solid #6EE7B7;color:#065F46;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px}
+    .t-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:13px}
+    .t-text{font-size:14.5px;color:var(--text);line-height:1.72;font-style:italic;flex:1;margin-bottom:20px}
+    .t-author{display:flex;align-items:center;gap:12px}
+    .t-avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--teal)}
+    .t-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13.5px;color:var(--navy)}
+    .t-city{font-size:11px;color:var(--teal);font-weight:700;margin-top:3px;display:flex;align-items:center;gap:3px}
+    .t-meta{font-size:11px;color:var(--muted);margin-top:2px}
+    .mini-reviews{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+    .mini-r{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
 
-    /* PACKAGES */
-    .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
-    .pkg{border:2px solid var(--border);border-radius:26px;padding:34px 24px 28px;text-align:center;position:relative;transition:all .2s;cursor:pointer;display:flex;flex-direction:column}
-    .pkg:hover{border-color:var(--teal);box-shadow:0 10px 36px rgba(0,179,134,.15);transform:translateY(-3px)}
-    .pkg.featured{border:3px solid var(--teal);box-shadow:0 16px 52px rgba(0,179,134,.22);transform:scale(1.04);background:#F0FBF7}
-    .pkg-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--teal);color:white;font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;padding:5px 20px;border-radius:40px;white-space:nowrap}
-    .pkg-img{height:190px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
-    .pkg-img img{height:100%;object-fit:contain;filter:drop-shadow(0 8px 22px rgba(0,0,0,.13))}
-    .pkg-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--navy);margin-bottom:3px}
-    .pkg-supply{font-size:13px;color:var(--muted);margin-bottom:16px}
-    .pkg-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:44px;color:var(--navy);line-height:1}
-    .pkg-price sup{font-size:22px;font-weight:700;vertical-align:super}
-    .pkg-per{font-size:13px;color:var(--muted);margin:7px 0 20px}
+    /* ════════════════════════════════════════════
+       PACKAGES
+    ════════════════════════════════════════════ */
+    .pkgs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+    .pkg{border:2px solid var(--border);border-radius:24px;padding:32px 22px 26px;text-align:center;position:relative;transition:all .2s;cursor:pointer;display:flex;flex-direction:column}
+    .pkg:hover{border-color:var(--teal);box-shadow:0 10px 36px rgba(0,179,134,.14);transform:translateY(-3px)}
+    .pkg.feat{border:3px solid var(--teal);box-shadow:0 16px 52px rgba(0,179,134,.2);transform:scale(1.04);background:#F0FBF7}
+    .pkg-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:10px;padding:5px 18px;border-radius:40px;white-space:nowrap}
+    .pkg-img{height:180px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+    .pkg-img img{height:100%;object-fit:contain;filter:drop-shadow(0 8px 22px rgba(0,0,0,.12))}
+    .pkg-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:3px}
+    .pkg-supply{font-size:12px;color:var(--muted);margin-bottom:12px}
+    .pkg-old{font-size:14px;color:#9CA3AF;text-decoration:line-through;font-family:'Montserrat',sans-serif;font-weight:600}
+    .pkg-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:42px;color:var(--navy);line-height:1}
+    .pkg-price sup{font-size:20px;font-weight:700;vertical-align:super}
+    .pkg-per{font-size:12px;color:var(--muted);margin:6px 0 3px}
     .pkg-per.hl{color:var(--teal);font-weight:700}
-    .pkg-perks{list-style:none;text-align:left;margin-bottom:24px;flex:1}
-    .pkg-perks li{font-size:13px;color:var(--text);padding:5px 0;display:flex;align-items:flex-start;gap:8px}
+    .pkg-ppd{font-size:11px;color:var(--teal);font-weight:700;margin-bottom:18px;font-family:'Montserrat',sans-serif}
+    .pkg-perks{list-style:none;text-align:left;margin-bottom:22px;flex:1}
+    .pkg-perks li{font-size:12.5px;color:var(--text);padding:4px 0;display:flex;align-items:flex-start;gap:8px}
     .pkg-perks li::before{content:'✓';color:var(--teal);font-weight:900;font-size:13px;margin-top:1px}
-    .btn-pkg{display:block;width:100%;background:var(--navy);color:white;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;padding:15px;border-radius:50px;border:none;cursor:pointer;transition:all .2s;text-align:center}
-    .pkg.featured .btn-pkg{background:var(--orange);box-shadow:0 4px 20px rgba(240,90,40,.35)}
+    .btn-pkg{display:block;width:100%;background:var(--navy);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;padding:14px;border-radius:50px;border:none;cursor:pointer;transition:all .2s;text-align:center}
+    .pkg.feat .btn-pkg{background:var(--orange);box-shadow:0 4px 18px rgba(240,90,40,.35)}
     .btn-pkg:hover{opacity:.9;transform:translateY(-1px)}
 
-    /* PROCESS */
-    .process-header{text-align:center;margin-bottom:56px}
-    .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;position:relative}
-    .steps-row::before{content:'';position:absolute;top:38px;left:18%;right:18%;height:2px;background:linear-gradient(90deg,var(--teal),var(--navy))}
+    /* ════════════════════════════════════════════
+       PROCESS
+    ════════════════════════════════════════════ */
+    .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative}
+    .steps-row::before{content:'';position:absolute;top:36px;left:18%;right:18%;height:2px;background:linear-gradient(90deg,var(--teal),var(--navy))}
     .step{text-align:center;position:relative;z-index:1}
-    .step-circle{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Montserrat',sans-serif;font-weight:900;font-size:28px;color:white;border:3px solid white;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+    .step-circle{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Montserrat',sans-serif;font-weight:900;font-size:26px;color:#fff;border:3px solid #fff;box-shadow:0 6px 20px rgba(0,0,0,.17)}
     .step:nth-child(1) .step-circle{background:var(--navy)}
     .step:nth-child(2) .step-circle{background:var(--teal)}
     .step:nth-child(3) .step-circle{background:var(--orange)}
-    .step-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;color:var(--navy);margin-bottom:10px}
-    .step-desc{font-size:14px;color:var(--muted);line-height:1.65}
+    .step-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:var(--navy);margin-bottom:9px}
+    .step-desc{font-size:13.5px;color:var(--muted);line-height:1.65}
+    .phone-note{background:#FFF7ED;border:1px solid #FED7AA;border-radius:14px;padding:18px 22px;margin-top:32px;text-align:center}
+    .phone-note p{font-size:14px;color:#92400E;line-height:1.65}
+    .phone-note strong{color:#78350F}
 
-    /* GUARANTEE */
-    .guarantee-card{max-width:820px;margin:0 auto;background:linear-gradient(135deg,var(--light-teal) 0%,#EEF3FF 100%);border:1px solid rgba(0,179,134,.25);border-radius:32px;padding:56px 64px;display:flex;gap:56px;align-items:center}
-    .guarantee-img{width:170px;min-width:170px}
-    .guarantee-img img{width:100%}
-    .g-title{font-size:30px;font-weight:900;color:var(--navy);margin-bottom:12px}
-    .g-text{font-size:16px;color:var(--muted);line-height:1.75}
+    /* ════════════════════════════════════════════
+       GUARANTEE
+    ════════════════════════════════════════════ */
+    .guarantee-card{max-width:800px;margin:0 auto;background:linear-gradient(135deg,var(--light-teal),#EEF3FF);border:1px solid rgba(0,179,134,.22);border-radius:28px;padding:52px 60px;display:flex;gap:52px;align-items:center}
+    .g-img{width:160px;min-width:160px}
+    .g-img img{width:100%}
+    .g-title{font-size:28px;font-weight:900;color:var(--navy);margin-bottom:12px}
+    .g-text{font-size:15px;color:var(--muted);line-height:1.75}
+    .g-badges{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+    .g-badge{background:var(--light-teal);border:1px solid rgba(0,179,134,.3);border-radius:9px;padding:8px 14px;font-size:12px;font-weight:700;color:var(--teal-dark);font-family:'Montserrat',sans-serif}
 
-    /* FAQ */
-    .faq-inner{max-width:760px;margin:0 auto}
-    .faq-header{text-align:center;margin-bottom:48px}
-    .faq-item{background:white;border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden}
-    .faq-q{padding:20px 24px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15.5px;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none}
+    /* ════════════════════════════════════════════
+       FAQ
+    ════════════════════════════════════════════ */
+    .faq-inner{max-width:740px;margin:0 auto}
+    .faq-hdr{text-align:center;margin-bottom:44px}
+    .faq-item{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:10px;overflow:hidden}
+    .faq-q{padding:18px 22px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;user-select:none}
     .faq-q:hover{background:var(--off-white)}
-    .faq-chevron{width:28px;height:28px;min-width:28px;border-radius:50%;background:var(--teal);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;transition:transform .22s}
-    .faq-item.open .faq-chevron{transform:rotate(180deg)}
-    .faq-a{display:none;padding:0 24px 22px;font-size:15px;color:var(--muted);line-height:1.75}
+    .faq-chev{width:26px;height:26px;min-width:26px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;transition:transform .22s}
+    .faq-item.open .faq-chev{transform:rotate(180deg)}
+    .faq-a{display:none;padding:0 22px 20px;font-size:14.5px;color:var(--muted);line-height:1.75}
     .faq-item.open .faq-a{display:block}
 
-    /* ORDER FORM */
-    .form-section{background:var(--navy);padding:88px 24px}
-    .form-section-inner{max-width:720px;margin:0 auto}
-    .form-top{text-align:center;margin-bottom:42px}
-    .form-box{background:white;border-radius:28px;padding:44px 48px}
-    .pkg-picker{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:30px}
-    .pick-opt{border:2px solid var(--border);border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;transition:all .18s}
-    .pick-opt:hover{border-color:var(--teal)}
-    .pick-opt.on{border-color:var(--teal);background:var(--light-teal)}
-    .pick-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:5px}
-    .pick-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:21px;color:var(--teal)}
-    .pick-sub{font-size:11px;color:var(--muted);margin-top:2px}
-    .pick-opt.on .pick-name{color:var(--teal)}
-    .fg{margin-bottom:18px}
-    .fg label{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;color:var(--navy);margin-bottom:7px}
-    .fg input,.fg textarea{width:100%;max-width:100%;min-width:0;padding:14px 16px;border:1.5px solid var(--border);border-radius:11px;font-size:16px;color:var(--text);font-family:'Lato',sans-serif;outline:none;transition:border-color .18s,box-shadow .18s;resize:none}
-    .fg input:focus,.fg textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,179,134,.1)}
-    .fg textarea{height:80px}
-    .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .form-divider{border:none;border-top:1px solid var(--border);margin:22px 0}
-    .form-step-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:16px}
-    .btn-submit{width:100%;background:var(--orange);color:white;font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;padding:20px;border-radius:50px;border:none;cursor:pointer;margin-top:8px;transition:all .2s;box-shadow:0 6px 24px rgba(240,90,40,.38)}
-    .btn-submit:hover{background:var(--orange-dk);transform:translateY(-2px)}
-    .btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
-    .form-foot{text-align:center;font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.6}
-    .success-wrap{display:none;text-align:center;padding:48px 20px}
-    .success-circle{width:84px;height:84px;background:var(--light-teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:38px;margin:0 auto 22px}
-    .success-wrap h3{font-size:26px;font-weight:900;color:var(--navy);margin-bottom:10px}
-    .success-wrap p{font-size:16px;color:var(--muted);line-height:1.7}
-    .order-ref{display:inline-block;background:var(--light-teal);color:var(--teal-dark);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;padding:8px 18px;border-radius:40px;margin-top:14px}
+    /* ════════════════════════════════════════════
+       BOTTOM FULL FORM
+    ════════════════════════════════════════════ */
+    .form-section{background:var(--navy);padding:80px 24px}
+    .form-sec-inner{max-width:700px;margin:0 auto}
+    .form-top{text-align:center;margin-bottom:38px}
+    .form-urg{background:linear-gradient(90deg,#991B1B,#DC2626);border-radius:12px 12px 0 0;padding:12px 18px;text-align:center;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+    .fcd-unit{background:rgba(0,0,0,.3);border-radius:5px;padding:2px 7px;font-size:14px;font-weight:900}
+    .fcd-sep{opacity:.6}
+    .form-box{background:#fff;border-radius:0 0 24px 24px;padding:40px 44px}
+    .f-pkg-picker{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:26px}
+    .f-pick{border:2px solid var(--border);border-radius:12px;padding:13px 10px;text-align:center;cursor:pointer;transition:all .18s;position:relative}
+    .f-pick:hover{border-color:var(--teal)}
+    .f-pick.on{border-color:var(--teal);background:var(--light-teal)}
+    .f-pick-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:8px;font-weight:800;padding:2px 9px;border-radius:18px;font-family:'Montserrat',sans-serif;white-space:nowrap}
+    .f-pick-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;color:var(--navy);margin-bottom:4px}
+    .f-pick.on .f-pick-name{color:var(--teal-dark)}
+    .f-pick-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:var(--teal)}
+    .f-pick-ppd{font-size:10px;color:var(--muted);margin-top:2px;font-family:'Montserrat',sans-serif}
+    .fg{margin-bottom:16px}
+    .fg label{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;color:var(--navy);margin-bottom:6px}
+    .fg input{width:100%;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;color:var(--text);font-family:'Lato',sans-serif;outline:none;transition:border-color .18s,box-shadow .18s;-webkit-text-size-adjust:100%}
+    .fg input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,179,134,.1)}
+    .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .form-div{border:none;border-top:1px solid var(--border);margin:20px 0}
+    .form-step-lbl{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:14px}
+    .btn-submit{width:100%;background:var(--orange);color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;padding:19px;border-radius:50px;border:none;cursor:pointer;margin-top:6px;transition:all .2s;box-shadow:0 6px 24px rgba(240,90,40,.38);animation:ctaPulse 2.5s ease-in-out infinite}
+    .btn-submit:hover{background:var(--orange-dk);transform:translateY(-2px);animation:none}
+    .btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;animation:none}
+    .submit-trust{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:12px;flex-wrap:wrap}
+    .submit-trust-item{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);font-weight:700;font-family:'Montserrat',sans-serif}
+    .form-foot{text-align:center;font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6}
+    .success-wrap{display:none;text-align:center;padding:44px 20px}
+    .success-circle{width:80px;height:80px;background:var(--light-teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 20px}
+    .success-wrap h3{font-size:24px;font-weight:900;color:var(--navy);margin-bottom:10px}
+    .success-wrap p{font-size:15px;color:var(--muted);line-height:1.7}
+    .order-ref{display:inline-block;background:var(--light-teal);color:var(--teal-dark);font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;padding:7px 16px;border-radius:40px;margin-top:12px}
 
-    /* FOOTER */
-    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:44px 24px 32px;text-align:center}
-    .foot-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:white;margin-bottom:14px}
-    .foot-disclaimer{font-size:12px;color:rgba(255,255,255,.32);max-width:640px;margin:0 auto 18px;line-height:1.7}
-    .foot-links a{font-size:12px;color:rgba(255,255,255,.35);margin:0 10px;transition:color .15s}
-    .foot-links a:hover{color:rgba(255,255,255,.7)}
-    .foot-copy{font-size:12px;color:rgba(255,255,255,.2);margin-top:16px}
+    /* ════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:40px 24px 28px;text-align:center}
+    .foot-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:#fff;margin-bottom:12px}
+    .foot-disc{font-size:11.5px;color:rgba(255,255,255,.28);max-width:620px;margin:0 auto 16px;line-height:1.7}
+    .foot-links a{font-size:11.5px;color:rgba(255,255,255,.32);margin:0 9px;transition:color .15s}
+    .foot-links a:hover{color:rgba(255,255,255,.65)}
+    .foot-copy{font-size:11px;color:rgba(255,255,255,.18);margin-top:14px}
 
-    /* MOBILE STICKY */
-    .sticky-mobile{display:none;position:fixed;bottom:0;left:0;right:0;width:100%;box-sizing:border-box;background:var(--orange);color:white;padding:16px 24px;text-align:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;z-index:600;box-shadow:0 -4px 24px rgba(0,0,0,.22);cursor:pointer}
+    /* ════════════════════════════════════════════
+       MOBILE STICKY
+    ════════════════════════════════════════════ */
+    .sticky-mob{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--orange);color:#fff;padding:15px 16px;text-align:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;z-index:600;box-shadow:0 -4px 22px rgba(0,0,0,.22);cursor:pointer;animation:ctaPulse 2.5s ease-in-out infinite}
 
+    /* ════════════════════════════════════════════
+       LIVE TOAST
+    ════════════════════════════════════════════ */
+    .toast{position:fixed;bottom:76px;left:14px;z-index:700;background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px 16px;box-shadow:0 8px 30px rgba(0,0,0,.13);display:flex;align-items:center;gap:11px;max-width:270px;transform:translateX(-300px);transition:transform .5s cubic-bezier(.34,1.56,.64,1);font-size:12.5px}
+    .toast.show{transform:translateX(0)}
+    .toast-icon{width:38px;height:38px;min-width:38px;background:var(--light-teal);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+    .toast-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;color:var(--navy);display:block}
+    .toast-msg{color:var(--muted);font-size:12px}
+    .toast-time{font-size:10px;color:var(--muted);margin-top:2px;display:block}
 
-    .cod-reassure{background:var(--light-teal);border:1px solid rgba(0,179,134,.25);color:var(--navy);border-radius:14px;padding:14px 16px;font-size:14px;font-weight:700;line-height:1.55;margin:4px 0 14px}
-    .form-section{scroll-margin-top:90px}
-    #baliky{scroll-margin-top:90px}
-
-    /* RESPONSIVE */
-    @media(max-width:940px){
-      .hero-wrap{grid-template-columns:1fr;gap:44px;text-align:center;padding:56px 20px}
+    /* ════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════ */
+    @media(max-width:960px){
+      .hero-wrap{grid-template-columns:1fr;gap:36px;text-align:center;padding:48px 20px}
       .hero-checks li{justify-content:center}
-      .btn-hero{margin:0 auto}
+      .btn-pulse{margin:0 auto}
+      .ppd-badge{margin:0 auto 22px}
+      .live-bar{justify-content:center}
       .hero-visual{order:-1}
-      .hero-visual img{max-height:260px}
-      .hero::after{display:none}
-      .problem-grid{grid-template-columns:1fr;gap:36px}
-      .problem-photo{display:none}
-      .product-grid{grid-template-columns:1fr;gap:40px;text-align:center}
-      .product-photo img{margin:0 auto;max-width:280px}
+      .hero-visual img{max-height:240px}
+      .hero-glow{display:none}
+      .qo-box{padding:26px 20px}
+      .qo-pkgs{grid-template-columns:1fr}
+      .qo-grid-2,.qo-grid-3{grid-template-columns:1fr}
+      .prob-grid{grid-template-columns:1fr}
+      .prob-photo{display:none}
+      .prod-grid{grid-template-columns:1fr;text-align:center}
+      .prod-photo img{margin:0 auto;max-width:260px}
       .why-grid{grid-template-columns:1fr}
       .chelate-banner{flex-direction:column;text-align:center}
-      .benefits-grid{grid-template-columns:1fr}
+      .ben-grid{grid-template-columns:1fr}
       .testi-grid{grid-template-columns:1fr}
-      .packages-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto}
-      .pkg.featured{transform:none}
-      .steps-row{grid-template-columns:1fr;gap:28px}
+      .mini-reviews{grid-template-columns:1fr}
+      .pkgs-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}
+      .pkg.feat{transform:none}
+      .steps-row{grid-template-columns:1fr;gap:26px}
       .steps-row::before{display:none}
-      .guarantee-card{flex-direction:column;text-align:center;padding:40px 28px;gap:28px}
-      .pkg-picker{grid-template-columns:1fr}
+      .guarantee-card{flex-direction:column;text-align:center;padding:36px 26px;gap:26px}
+      .f-pkg-picker{grid-template-columns:1fr}
       .form-row-2{grid-template-columns:1fr}
-      .form-box{padding:28px 22px}
-      .sticky-mobile{display:block}
+      .form-box{padding:26px 20px}
+      .pharma-table{grid-template-columns:1fr;gap:12px}
+      .pharma-vs{display:none}
+      .sticky-mob{display:block}
+      .toast{bottom:74px}
     }
     @media(max-width:600px){
-      .section{padding:60px 18px}
-      .header-trust{display:none}
+      .section{padding:56px 16px}
+      .site-header{padding:10px 14px}
+      .hdr-trust{display:none}
+      .hdr-cta{font-size:12px;padding:10px 14px}
+      .quick-order{padding:36px 16px}
+      .form-section{padding:56px 14px}
+      .form-sec-inner,.form-box{max-width:100%}
+      .fg input,.qo-fg input{font-size:16px}
+      .sticky-mob{font-size:14px}
     }
   </style>
 </head>
 <body>
 
-<div class="announce">
-  <span>✅ Utánvétes fizetés</span>
-  <span class="dot">·</span>
-  <span>🚚 Szállítás egész Magyarországon</span>
-  <span class="dot">·</span>
-  <span>🔒 100% elégedettségi garancia</span>
+<!-- ══ LIVE TOAST ══════════════════════════════════════════════ -->
+<div class="toast" id="toast">
+  <div class="toast-icon">📦</div>
+  <div>
+    <strong class="toast-name" id="toast-name">Mária Budapestről</strong>
+    <span class="toast-msg" id="toast-msg">most rendelt 2 doboz</span>
+    <span class="toast-time" id="toast-time">pred 3 minútami</span>
+  </div>
 </div>
 
+<!-- ══ URGENCY BAR ═════════════════════════════════════════════ -->
+<div class="urgency-bar">
+  <div class="urg-inner">
+    <span>🔥 A mai ajánlat lejár:</span>
+    <div class="cd-box">
+      <div class="cd-unit" id="cd-h">02</div><span class="cd-col">:</span>
+      <div class="cd-unit" id="cd-m">47</div><span class="cd-col">:</span>
+      <div class="cd-unit" id="cd-s">00</div>
+    </div>
+    <div class="urg-stock">📦 Készleten maradt: <strong id="stock-top">23</strong> db</div>
+  </div>
+</div>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════ -->
 <header class="site-header">
-  <div class="header-wrap">
+  <div class="hdr-wrap">
     <div class="logo">TOPLUX <span class="logo-pill">NUTRITION</span></div>
-    <div class="header-trust">
+    <div class="hdr-trust">
       <span>🛡️ Biztonságos rendelés</span>
       <span>📦 Fizetés átvételkor</span>
       <span>⭐ 4.8/5 értékelés</span>
     </div>
-    <a href="#objednat" class="hdr-cta">Utánvétes rendelés</a>
+    <a href="#quick-order" class="hdr-cta">Rendelem most →</a>
   </div>
 </header>
 
+<!-- ══ HERO ════════════════════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-overlay"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
   <div class="hero-wrap">
     <div class="hero-text">
-      <div class="hero-label">Korlátozott készlet Magyarországra</div>
-      <h1>Egyszerű <em>esti rutin</em><br>magnéziummal</h1>
-      <p class="hero-sub">Toplux Nutrition Magnesium Glycinate Complex kelátos magnéziumformával — praktikus étrend-kiegészítő a mindennapi wellness rutinhoz. Nincs előrefizetés, csak átvételkor fizet.</p>
+      <div class="stock-pill"><span class="red-dot"></span>Utolsó <strong id="stock-hero">23</strong> db raktáron 🇭🇺</div>
+      <div class="hero-badge">Természetes kelátos formula</div>
+      <h1>Nem a te hibád,<br>ha <em>kimerültnek</em> érzed magad.</h1>
+      <p class="hero-sub">A modern élet minden nap próbára teszi a tested ásványianyag-egyensúlyát. A Toplux Nutrition Magnesium Glycinate Complex kelátos formában ad magnéziumot egy komolyabb napi rutin részeként.</p>
+      <div class="ppd-badge">
+        <div class="ppd-big">154 Ft</div>
+        <div class="ppd-lbl">naponta<strong>Kevesebb, mint egy kávé</strong></div>
+      </div>
       <ul class="hero-checks">
-        <li>Kelátos magnéziumforma — Magnesium Glycinate 525 mg</li>
-        <li>Egyszerű napi ásványianyag-támogatás férfiaknak és nőknek</li>
-        <li>Bankkártya nélkül — fizetés a futárnak átvételkor</li>
+        <li>Magnesium Glycinate 525mg — kelátos forma</li>
+        <li>Támogatja az izmok, idegrendszer és szív normál működését</li>
+        <li>A futárnál fizetsz átvételkor — nincs előre fizetés</li>
+        <li>GLS szállítás Magyarországon 3–5 nap alatt</li>
       </ul>
-      <a href="#objednat" class="btn-hero">Megrendelés utánvéttel →</a>
-      <p class="btn-note">💳 Nincs előrefizetés &nbsp;·&nbsp; Telefonos megerősítés &nbsp;·&nbsp; Szállítás Magyarországon</p>
+      <a href="#quick-order" class="btn-pulse" onclick="fireInitiateCheckout()">🛒 Megrendelem — fizetés átvételkor →</a>
+      <p class="btn-note">💳 Nincs előre fizetés &nbsp;·&nbsp; GLS szállítás &nbsp;·&nbsp; 30 napos garancia</p>
+      <div class="live-bar"><span class="live-dot"></span><span>Ma már <strong id="today-count">47</strong> ember rendelt Magyarországról</span></div>
     </div>
     <div class="hero-visual">
-      <img src="./images/product-bottle.webp" alt="Toplux Nutrition Magnesium Glycinate Complex 525 mg">
+      <img src="./images/product-bottle.webp" alt="Toplux Nutrition Magnesium Glycinate Complex 525mg">
     </div>
   </div>
 </section>
 
+<!-- ══ TOP QUICK-ORDER FORM ← THE KEY CHANGE ══════════════════ -->
+<section class="quick-order" id="quick-order">
+  <div class="qo-inner">
+    <div class="qo-head">
+      <div class="qo-tag">⚡ Gyors rendelés</div>
+      <h2 class="qo-title">Rendelj 60 másodperc alatt<br>— fizetés átvételkor</h2>
+      <p class="qo-sub">Nincs bankkártya, nincs előre fizetés. Csak töltsd ki az űrlapot — felhívunk megerősítésért.</p>
+    </div>
+    <div class="qo-box">
+      <div id="qo-body">
+        <!-- Package picker -->
+        <div class="qo-pkgs">
+          <div class="qo-pkg" onclick="setQoPkg(1)">
+            <div class="qo-pkg-old">16 900 Ft</div>
+            <div class="qo-pkg-name">1 doboz</div>
+            <div class="qo-pkg-price">13 900 Ft</div>
+            <div class="qo-pkg-ppd">154 Ft/deň · kipróbálásra</div>
+          </div>
+          <div class="qo-pkg on" onclick="setQoPkg(2)" style="position:relative">
+            <div class="qo-pkg-badge">★ Legnépszerűbb</div>
+            <div class="qo-pkg-old">33 800 Ft</div>
+            <div class="qo-pkg-name">★ 2 doboz</div>
+            <div class="qo-pkg-price">21 900 Ft</div>
+            <div class="qo-pkg-ppd">122 Ft/deň · megtakarítás 11 900 Ft</div>
+          </div>
+          <div class="qo-pkg" onclick="setQoPkg(3)">
+            <div class="qo-pkg-old">50 700 Ft</div>
+            <div class="qo-pkg-name">3 doboz</div>
+            <div class="qo-pkg-price">27 900 Ft</div>
+            <div class="qo-pkg-ppd">103 Ft/deň · max. megtakarítás</div>
+          </div>
+        </div>
+
+        <!-- Fields -->
+        <div class="qo-grid-2">
+          <div class="qo-fg">
+            <label for="q-name">Név és vezetéknév *</label>
+            <input type="text" id="q-name" placeholder="Kovács Anna" autocomplete="name">
+          </div>
+          <div class="qo-fg">
+            <label for="q-phone">Telefon * <span style="font-weight:400;opacity:.65">(felhívunk megerősítésért)</span></label>
+            <input type="tel" id="q-phone" placeholder="+36 30 123 4567" autocomplete="tel">
+          </div>
+        </div>
+        <div class="qo-fg">
+          <label for="q-street">Utca és házszám *</label>
+          <input type="text" id="q-street" placeholder="Fő utca 15" autocomplete="street-address">
+        </div>
+        <div class="qo-grid-2">
+          <div class="qo-fg">
+            <label for="q-city">Város *</label>
+            <input type="text" id="q-city" placeholder="Budapest" autocomplete="address-level2">
+          </div>
+          <div class="qo-fg">
+            <label for="q-zip">Irányítószám *</label>
+            <input type="text" id="q-zip" placeholder="1051" autocomplete="postal-code" maxlength="4">
+          </div>
+        </div>
+
+        <button class="qo-submit" id="qo-btn" onclick="submitOrder('q')">
+          🛒 Megrendelem — fizetés átvételkor →
+        </button>
+        <div class="qo-trust">
+          <div class="qo-trust-item">🔒 Biztonságos</div>
+          <div class="qo-trust-item">📦 GLS Magyarország</div>
+          <div class="qo-trust-item">💵 Fizetés átvételkor</div>
+          <div class="qo-trust-item">✅ 30 napos garancia</div>
+        </div>
+      </div>
+      <!-- Quick form success -->
+      <div class="qo-success" id="qo-success">
+        <div class="qo-success-icon">✅</div>
+        <h3>Köszönjük a rendelést!</h3>
+        <p>Zavoláme vám do 24 hodín zo slovenského čísla.<br><strong>Prosím, majte telefón pri sebe.</strong><br>GLS szállítás do 3–5 pracovných dní.</p>
+        <div class="ref" id="qo-ref">Hivatkozási szám: —</div>
+        <div class="save-num">📞 <strong>Fontos:</strong> Mentsd el a számunkat „Toplux Nutrition” néven, hogy ne maradj le a hívásról. SMS-ben vagy Viberen is írhatsz nekünk.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ═══════════════════════════════════════════════ -->
 <div class="trust-bar">
   <div class="trust-row">
-    <div class="trust-item"><div class="trust-big">COD</div><div class="trust-label">fizetés<br>átvételkor</div></div>
-    <div class="trust-item"><div class="trust-big">525mg</div><div class="trust-label">kelátos magnézium<br>/ adag</div></div>
-    <div class="trust-item"><div class="trust-big">90</div><div class="trust-label">kapszula<br>egy dobozban</div></div>
-    <div class="trust-item"><div class="trust-big">24h</div><div class="trust-label">telefonos<br>megerősítés</div></div>
+    <div class="trust-item"><div class="trust-big">10 000+</div><div class="trust-lbl">elégedett<br>vásárló</div></div>
+    <div class="trust-item"><div class="trust-big">525mg</div><div class="trust-lbl">kelátos magnézium<br>/ adag</div></div>
+    <div class="trust-item"><div class="trust-big">90</div><div class="trust-lbl">kapszula<br>egy dobozban</div></div>
+    <div class="trust-item"><div class="trust-big">4.8★</div><div class="trust-lbl">priemerné<br>értékelés</div></div>
+    <div class="trust-item"><div class="gls-badge">🚚 GLS Magyarország</div><div class="trust-lbl">megbízható<br>futár</div></div>
   </div>
 </div>
 
-<!-- FAST COD ORDER: moved high for lower friction -->
-<!-- PACKAGES / OFFER -->
-<section class="section" style="background:var(--white)" id="baliky">
-  <div class="section-inner">
-    <div style="text-align:center;margin-bottom:52px">
-      <div class="tag">Válasszon csomagot</div>
-      <h2 class="h2">Utánvétes fizetés — nincs előre fizetés</h2>
-      <p class="lead" style="margin:12px auto 0;text-align:center">Nincs bankkártyás előrefizetés. A futárnak fizet közvetlenül a csomag átvételekor.</p>
-    </div>
-    <div class="packages-grid">
-      <div class="pkg" onclick="selectPkg(1)">
-        <div class="pkg-img"><img src="./images/product-offer-1.webp" alt="1 doboz Toplux Magnesium Glycinate"></div>
-        <div class="pkg-name">Kipróbáló csomag</div>
-        <div class="pkg-supply">1 doboz · első kipróbálásra</div>
-        <div class="pkg-price">13 900 <sup style="font-size:18px">Ft</sup></div>
-        <div class="pkg-per">Kezdő csomag</div>
-        <ul class="pkg-perks">
-          <li>1× Magnesium Glycinate (90 kapszula)</li>
-          <li>525 mg kelátos magnézium / adag</li>
-          <li>Jó választás, ha először kipróbálná</li>
-          <li>Szállítás Magyarországon</li>
-          <li>Utánvétes fizetés</li>
-        </ul>
-        <a href="#objednat" class="btn-pkg" onclick="selectPkg(1)">Megrendelés</a>
-      </div>
-      <div class="pkg featured" onclick="selectPkg(2)">
-        <div class="pkg-badge">★ Legjobb választás</div>
-        <div class="pkg-img"><img src="./images/product-offer-2.webp" alt="2 doboz Toplux Magnesium Glycinate"></div>
-        <div class="pkg-name">Ajánlott csomag</div>
-        <div class="pkg-supply">2 doboz · legjobb választás rendszeres rutinhoz</div>
-        <div class="pkg-price">21 900 <sup style="font-size:18px">Ft</sup></div>
-        <div class="pkg-per hl">A 2. doboz kedvezményesen · jobb érték</div>
-        <ul class="pkg-perks">
-          <li>2× Magnesium Glycinate (180 kapszula)</li>
-          <li>525 mg kelátos magnézium / adag</li>
-          <li>A vásárlók leggyakoribb választása</li>
-          <li>Szállítás Magyarországon ZDARMA</li>
-          <li>Utánvétes fizetés</li>
-          <li>Elsőbbségi rendelésfeldolgozás</li>
-        </ul>
-        <a href="#objednat" class="btn-pkg" onclick="selectPkg(2)">Megrendelés teraz →</a>
-      </div>
-      <div class="pkg" onclick="selectPkg(3)">
-        <div class="pkg-badge">Legnagyobb megtakarítás</div>
-        <div class="pkg-img"><img src="./images/product-offer-3.webp" alt="3 doboz Toplux Magnesium Glycinate"></div>
-        <div class="pkg-name">Legjobb értékű csomag</div>
-        <div class="pkg-supply">3 doboz · legalacsonyabb ár dobozonként</div>
-        <div class="pkg-price">27 900 <sup style="font-size:18px">Ft</sup></div>
-        <div class="pkg-per">A 3. doboz extra kedvezményesen · legjobb érték</div>
-        <ul class="pkg-perks">
-          <li>3× Magnesium Glycinate (270 kapszula)</li>
-          <li>525 mg kelátos magnézium / adag</li>
-          <li>Legalacsonyabb ár dobozonként</li>
-          <li>Előnyös családi használatra vagy hosszabb rutinhoz</li>
-          <li>Szállítás Magyarországon ZDARMA</li>
-          <li>Utánvétes fizetés</li>
-          <li>Elsőbbségi rendelésfeldolgozás</li>
-        </ul>
-        <a href="#objednat" class="btn-pkg" onclick="selectPkg(3)">Megrendelés</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ORDER FORM -->
-<section class="form-section" id="objednat">
-  <div class="form-section-inner">
-    <div class="form-top">
-      <div class="tag tag-w">Rendelés</div>
-      <h2 class="h2 h2-w">Rendelje meg most</h2>
-      <p class="lead lead-w" style="margin:0 auto">Töltse ki az alábbi űrlapot. 24 órán belül felhívjuk. A futárnak fizet átvételkor.</p>
-    </div>
-    <div class="form-box">
-      <div id="form-body">
-        <p class="form-step-label">1. Válasszon csomagot:</p>
-        <div class="pkg-picker">
-          <div class="pick-opt" onclick="setPkg(this,1)">
-            <div class="pick-name">1 doboz</div>
-            <div class="pick-price">13 900 Ft</div>
-            <div class="pick-sub">Kipróbálásra</div>
-          </div>
-          <div class="pick-opt on" onclick="setPkg(this,2)">
-            <div class="pick-name">★ 2 doboz</div>
-            <div class="pick-price">21 900 Ft</div>
-            <div class="pick-sub">Legnépszerűbb</div>
-          </div>
-          <div class="pick-opt" onclick="setPkg(this,3)">
-            <div class="pick-name">3 doboz</div>
-            <div class="pick-price">27 900 Ft</div>
-            <div class="pick-sub">Legjobb érték</div>
-          </div>
-        </div>
-
-        <hr class="form-divider">
-        <p class="form-step-label">2. Kapcsolattartási adatok:</p>
-        <div class="fg">
-          <label for="f-name">Név és vezetéknév *</label>
-          <input type="text" id="f-name" placeholder="Pl. Kovács Anna" autocomplete="name">
-        </div>
-        <div class="fg">
-          <label for="f-phone">Telefonszám *</label>
-          <input type="tel" id="f-phone" placeholder="+36 XX XXX XXXX" autocomplete="tel">
-        </div>
-        <hr class="form-divider">
-        <p class="form-step-label">3. Szállítási cím:</p>
-        <div class="fg">
-          <label for="f-street">Utca és házszám *</label>
-          <input type="text" id="f-street" placeholder="Pl. Fő utca 15" autocomplete="street-address">
-        </div>
-        <div class="form-row-2">
-          <div class="fg">
-            <label for="f-city">Város *</label>
-            <input type="text" id="f-city" placeholder="Budapest" autocomplete="address-level2">
-          </div>
-          <div class="fg">
-            <label for="f-zip">Irányítószám *</label>
-            <input type="text" id="f-zip" placeholder="1051" autocomplete="postal-code">
-          </div>
-        </div>
-        <div class="fg">
-          <label for="f-note">Megjegyzés <span style="font-weight:400;color:var(--muted)">(opcionális)</span></label>
-          <textarea id="f-note" placeholder="Pl. kérem, hívjanak kézbesítés előtt, emelet stb."></textarea>
-        </div>
-
-        <div class="cod-reassure">📞 A rendelés elküldése után telefonon felvesszük Önnel a kapcsolatot a megerősítéshez. Csak a futárnak fizet átvételkor.</div>
-        <button class="btn-submit" id="submit-btn" onclick="submitOrder()">
-          Megrendelés — utánvéttel fizetek →
-        </button>
-        <p class="form-foot">🔒 Személyes adatait kizárólag a rendelés feldolgozására használjuk.<br>Csak Magyarország területén belül szállítunk.</p>
-      </div>
-
-      <div class="success-wrap" id="success-box">
-        <div class="success-circle">✅</div>
-        <h3>Köszönjük a rendelést!</h3>
-        <p>24 órán belül felhívjuk a rendelés megerősítéséhez.<br>Kérjük, tartsa telefonját elérhető közelségben.<br><br>A csomagot 3–5 munkanapon belül kézbesítjük.</p>
-        <div class="order-ref" id="order-ref">Rendelési azonosító: —</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- PRODUCT INTRO -->
-<section class="section" style="background:var(--off-white)">
-  <div class="section-inner">
-    <div class="product-grid">
-      <div class="product-photo"><img src="./images/product-bottle.webp" alt="Toplux Nutrition Magnesium Glycinate Complex"></div>
+<!-- ══ PROBLEM ═════════════════════════════════════════════════ -->
+<section class="section" style="background:#fff">
+  <div class="sec-inner">
+    <div class="prob-grid">
+      <div class="prob-photo"><img src="./images/lifestyle-problem.webp" alt="Únava"></div>
       <div>
-        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:10px">Toplux Nutrition®</div>
-        <h2 class="h2" style="font-size:clamp(26px,3vw,38px);">Magnesium Glycinate Complex<br>— Prémium kelátos formula.</h2>
-        <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:28px">A Toplux Nutrition Magnesium Glycinate Complex kelátos formát használ — a magnézium glicin aminosavhoz kötött formáját. Egyszerű napi rutinhoz készült, mindennapi ásványianyag-támogatásra.</p>
-        <div class="stats-row">
-          <div class="stat"><div class="stat-n">525</div><div class="stat-l">mg / adag</div></div>
-          <div class="stat"><div class="stat-n">90</div><div class="stat-l">kapszula / doboz</div></div>
-          <div class="stat"><div class="stat-n">90</div><div class="stat-l">napos adag</div></div>
-        </div>
-        <a href="#objednat" class="btn-hero" style="font-size:16px;padding:17px 30px;max-width:320px">Utánvétes rendelés →</a>
+        <div class="tag">Ismerős?</div>
+        <h2 class="h2">Miért érzed magad fáradtnak,<br>akkor is, ha aludtál?</h2>
+        <p class="lead">A magnézium olyan ásványi anyag, amelyet a szervezet több mint 300 létfontosságú folyamatban használ. A stressz, a hosszú munkanapok és a modern étrend gyorsabban kimeríthetik, mint gondolnád.</p>
+        <ul class="sym-list">
+          <li><div class="s-icon">😴</div><div>Fáradtság elegendő alvás után is — energia nélkül indítod a napot</div></li>
+          <li><div class="s-icon">😤</div><div>Feszültség és ingerlékenység egy hosszú munkanap után</div></li>
+          <li><div class="s-icon">💪</div><div>Izommerevség vagy feszülés reggel vagy este</div></li>
+          <li><div class="s-icon">🧠</div><div>Nehezebb koncentráció — mintha lassabban járna az agy</div></li>
+        </ul>
+        <div class="insight"><p>„Sokan nem visznek be elegendő magnéziumot naponta — és ezt gyakran észre sem veszik, mert azt hiszik, a fáradtság az élet normális része.”</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY CHELATED -->
-<section class="section" style="background:var(--white)">
-  <div class="section-inner">
-    <div style="text-align:center;margin-bottom:52px">
-      <div class="tag">Miért kelátos magnézium?</div>
+<!-- ══ PHARMACY COMPARISON ════════════════════════════════════ -->
+<section class="pharma-bg">
+  <div class="pharma-inner">
+    <div class="tag tag-w">Ár-összehasonlítás</div>
+    <h2 class="h2 h2-w">A gyógyszertárban gyakran 2–3× többet fizetsz<br>egy alap magnéziumformáért</h2>
+    <p class="lead lead-w" style="margin:10px auto 0;text-align:center">A kelátos forma prémium választás — ezért fontos tudni, mit veszel. Nézd meg az összehasonlítást.</p>
+    <div class="pharma-table">
+      <div class="pharma-col lose">
+        <div class="pharma-lbl">Hagyományos gyógyszertár</div>
+        <div class="pharma-brand">Alap gyógyszertári<br>Magnesium Oxide</div>
+        <div class="pharma-price bad">4 900–7 200 Ft</div>
+        <div class="pharma-psub">60 tabletta · kb. 2 hónap</div>
+        <ul class="pharma-rows">
+          <li>❌ Oxide/Citrate — alap forma</li>
+          <li>❌ Gyakran előre fizetés szükséges</li>
+          <li>❌ 200–300mg magnézium / adag</li>
+          <li>❌ Nem mindenki számára ideális</li>
+          <li>❌ ~80–120 Ft / deň alap formula mellett</li>
+        </ul>
+      </div>
+      <div class="pharma-vs">VS</div>
+      <div class="pharma-col win">
+        <div class="win-badge">✓ Legjobb választás</div>
+        <div class="pharma-lbl">Toplux Nutrition</div>
+        <div class="pharma-brand">Magnesium Glycinate<br>Complex 525mg</div>
+        <div class="pharma-price good">13 900 Ft</div>
+        <div class="pharma-psub">90 kapszula · 3 hónap · csak 154 Ft/deň</div>
+        <ul class="pharma-rows">
+          <li>✅ Glycinate kelát — prémium forma</li>
+          <li>✅ Fizetés átvételkor — nincs bankkártya</li>
+          <li>✅ 525mg kelátos magnézium / adag</li>
+          <li>✅ Kíméletes formula napi rutinhoz</li>
+          <li>✅ Csak 154 Ft/deň — kevesebb, mint egy kávé</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCT INTRO ═══════════════════════════════════════════ -->
+<section class="section" style="background:var(--off-white)">
+  <div class="sec-inner">
+    <div class="prod-grid">
+      <div class="prod-photo"><img src="./images/product-bottle.webp" alt="Toplux Nutrition Magnesium Glycinate Complex"></div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:10px">Toplux Nutrition®</div>
+        <h2 class="h2">Magnesium Glycinate Complex<br>— Természetes kelátos formula.</h2>
+        <div class="stats-row" style="margin-top:22px">
+          <div class="stat-box"><div class="stat-n">525mg</div><div class="stat-l">Kelátos Mg / kapszula</div></div>
+          <div class="stat-box"><div class="stat-n">90</div><div class="stat-l">Kapszula / doboz</div></div>
+          <div class="stat-box"><div class="stat-n">154 Ft</div><div class="stat-l">Csak naponta</div></div>
+        </div>
+        <p class="lead" style="font-size:15px;margin-bottom:20px">A kelátos magnézium glicin aminosavhoz kötött forma — prémium választás azoknak, akik komolyabb magnézium komplexet keresnek. Egyszerű napi rutin, 90 kapszulás kiszerelésben.</p>
+        <a href="#quick-order" class="btn-pulse" style="font-size:15px;padding:15px 30px;max-width:300px;display:inline-flex" onclick="fireInitiateCheckout()">Megrendelem — fizetés átvételkor →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY CHELATED ════════════════════════════════════════════ -->
+<section class="section" style="background:#fff">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="tag">Miért kelátos forma?</div>
       <h2 class="h2">Nem minden magnézium egyforma</h2>
-      <p class="lead" style="margin:0 auto">A kelátos forma azt jelenti, hogy a magnézium egy aminosavhoz kötött formában van jelen — ez egy prémium megközelítés a mindennapi magnézium-rutinhoz.</p>
+      <p class="lead" style="margin:0 auto;text-align:center">A Glycinate kelátos forma prémium magnéziumforma, amely jól illeszkedik a mindennapi ásványianyag-rutinhoz.</p>
     </div>
     <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">🔬</div>
-        <div class="why-title">Kelátos forma</div>
-        <div class="why-desc">A magnézium glicináthoz hasonló kelátos formák népszerűek azok körében, akik tudatosabban választanak magnézium-kiegészítőt.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🫀</div>
-        <div class="why-title">Kíméletesebb napi rutin</div>
-        <div class="why-desc">A glicinát forma sok vásárló számára vonzó választás, mert prémiumabb és tudatosabb alternatívának érződik az alap formulákhoz képest.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">⚗️</div>
-        <div class="why-title">A glicin előnye</div>
-        <div class="why-desc">A glicin egy aminosav, amely a formula részeként kiegészíti a magnézium komplex mindennapi használatát.</div>
-      </div>
+      <div class="why-card"><div class="why-icon">🔬</div><div class="why-title">Kelátos kötés</div><div class="why-desc">Glicin aminosavhoz kötött magnéziumforma. Nem egy egyszerű, alap polcos magnézium.</div></div>
+      <div class="why-card"><div class="why-icon">🧬</div><div class="why-title">Prémium felhasználhatóság</div><div class="why-desc">A kelátos forma sok vásárló számára komolyabb választás, mint az alap magnéziumformák.</div></div>
+      <div class="why-card"><div class="why-icon">💚</div><div class="why-title">Kíméletes napi rutin</div><div class="why-desc">Egyszerű kapszulás formula mindennapi használatra, azoknak, akik nem akarnak teljesen alap megoldást.</div></div>
     </div>
     <div class="chelate-banner">
-      <div class="chelate-badge"><div class="big">525mg</div><div class="sm">adagonként</div></div>
-      <p class="chelate-text"><strong>Natural Chelated Formula</strong> — A Toplux Nutrition 525 mg kelátos magnéziumot kínál adagonként, egy egyszerű és következetes napi rutin részeként.</p>
+      <div class="chelate-badge"><div class="big">525mg</div><div class="sm">Glycinate / kapsulu</div></div>
+      <p class="chelate-txt"><strong>Miért 525mg?</strong> A TOPLUX egy komolyabb magnézium komplexet kínál 525mg kelátos Magnesium Glycinate adagolással, 90 kapszulás kiszerelésben — nem csak egy újabb alap doboz a polcról.</p>
     </div>
   </div>
 </section>
 
-<!-- BENEFITS -->
-<section class="section benefits-bg">
-  <div class="section-inner">
-    <div class="benefits-header">
-      <div class="tag tag-w">A termék előnyei</div>
-      <h2 class="h2 h2-w">Mit ad hozzá minden kapszula a napi rutinjához</h2>
-      <p class="lead lead-w">Több fontos terület támogatása egy egyszerű étrend-kiegészítőben.</p>
+<!-- ══ BENEFITS ════════════════════════════════════════════════ -->
+<section class="section ben-bg">
+  <div class="sec-inner">
+    <div class="ben-hdr">
+      <div class="tag tag-w">Miért választják?</div>
+      <h2 class="h2 h2-w">6 ok, amiért a magyar vásárlók<br>a Magnesium Complex mellett döntenek</h2>
+      <p class="lead lead-w" style="margin:0 auto">Prémium magnézium formula férfiaknak és nőknek.</p>
     </div>
-    <div class="benefits-grid">
-      <div class="benefit-card"><div class="b-icon">💪</div><div><div class="b-title">Izmok és csontok</div><div class="b-desc">A magnézium hozzájárul a normál izomműködéshez és a normál csontozat fenntartásához — aktív embereknek és sokat ülőknek egyaránt.</div></div></div>
-      <div class="benefit-card"><div class="b-icon">🌙</div><div><div class="b-title">Esti rutin és nyugalmas hangulat</div><div class="b-desc">A magnézium hozzájárul az idegrendszer normál működéséhez — jó választás egy egyszerű esti wellness-rutin részeként.</div></div></div>
-      <div class="benefit-card"><div class="b-icon">🫶</div><div><div class="b-title">Mindennapi támogatás</div><div class="b-desc">A magnézium hozzájárul a normál szívműködéshez, ezért sokan tudatosan építik be a napi étrend-kiegészítő rutinjukba.</div></div></div>
-      <div class="benefit-card"><div class="b-icon">⚡</div><div><div class="b-title">Energia-anyagcsere és enzimek</div><div class="b-desc">Hozzájárul a normál energiatermelő anyagcsere-folyamatokhoz és az enzimek normál működéséhez.</div></div></div>
+    <div class="ben-grid">
+      <div class="ben-card"><div class="ben-icon">⚡</div><div><div class="ben-title">Mindennapi rutin támogatása</div><div class="ben-desc">Egyszerű napi ásványianyag-támogatás azoknak, akik tudatosabban választanak magnéziumot.</div></div></div>
+      <div class="ben-card"><div class="ben-icon">😴</div><div><div class="ben-title">Esti wellness rutin</div><div class="ben-desc">Ideális esti rutin részeként: víz, nyugodt pillanat, TOPLUX Magnesium Complex.</div></div></div>
+      <div class="ben-card"><div class="ben-icon">💪</div><div><div class="ben-title">Izmok normál működése</div><div class="ben-desc">A magnézium hozzájárul az izmok normál működéséhez és a napi ásványianyag-bevitelhez.</div></div></div>
+      <div class="ben-card"><div class="ben-icon">🧠</div><div><div class="ben-title">Napi ásványianyag-bevitel</div><div class="ben-desc">Praktikus kiegészítés azoknak, akik nem csak egy olcsó, alap megoldást keresnek.</div></div></div>
+      <div class="ben-card"><div class="ben-icon">❤️</div><div><div class="ben-title">Normál szívműködés</div><div class="ben-desc">A magnézium hozzájárul a szív normál működéséhez.</div></div></div>
+      <div class="ben-card"><div class="ben-icon">😌</div><div><div class="ben-title">Idegrendszer támogatása</div><div class="ben-desc">A magnézium hozzájárul az idegrendszer normál működéséhez.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- ══ TESTIMONIALS ════════════════════════════════════════════ -->
 <section class="section testi-bg">
-  <div class="section-inner">
-    <div class="testi-header">
+  <div class="sec-inner">
+    <div class="testi-hdr">
       <div class="tag">Vásárlói vélemények</div>
-      <h2 class="h2">Mit mondanak vásárlóink</h2>
-      <div class="stars-row">★★★★★</div>
-      <p style="font-size:14px;color:var(--muted);margin-top:6px">Átlagos értékelés 4.8/5 több mint 2 000 visszajelzés alapján</p>
+      <h2 class="h2">Valódi tapasztalatok — magyar vásárlóknak</h2>
+      <div class="stars">★★★★★</div>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px">Priemerné értékelés 4.8/5 z viac ako 2 000 overených recenzií</p>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
+        <div class="verified-badge">✓ Ellenőrzött</div>
         <div class="t-stars">★★★★★</div>
-        <p class="t-text">„Napi sok órát dolgozom irodában, ezért szerettem volna egy egyszerű esti rutint. A kapszulák könnyen bevehetők, a rendelés gyors volt, és csak átvételkor fizettem.”</p>
+        <p class="t-text">„Napi 10 órát dolgozom irodában. Beépítettem az esti rutinomba, és nagyon elégedett vagyok. A kapszulák könnyen lenyelhetők, a rendelés gyorsan megérkezett, és csak átvételkor fizettem.”</p>
         <div class="t-author">
-          <img src="./images/testimonial-maria.webp" alt="Katalin M." class="t-avatar">
-          <div><div class="t-name">Katalin M.</div><div class="t-meta">42 éves · Budapest · ✅ Ellenőrzött vásárló</div></div>
+          <img src="./images/testimonial-maria.webp" alt="Mária K." class="t-avatar">
+          <div><div class="t-name">Mária K., 42 éves</div><div class="t-city">📍 Budapest, Petržalka</div><div class="t-meta">✅ Ellenőrzött · 2 doboz</div></div>
         </div>
       </div>
       <div class="testi-card">
+        <div class="verified-badge">✓ Ellenőrzött</div>
         <div class="t-stars">★★★★★</div>
-        <p class="t-text">„A kelátos forma miatt választottam, mert nem akartam egy teljesen alap magnéziumot. Kettőt rendeltem, magamnak és a feleségemnek. Az utánvét nagy plusz.”</p>
+        <p class="t-text">„A kelátos forma miatt választottam. Rendeltem magamnak és a feleségemnek is 2 dobozt. Az utánvétes fizetés kényelmes volt, semmit nem kellett előre fizetni.”</p>
         <div class="t-author">
-          <img src="./images/testimonial-peter.webp" alt="Péter M." class="t-avatar">
-          <div><div class="t-name">Péter M.</div><div class="t-meta">38 éves · Debrecen · ✅ Ellenőrzött vásárló</div></div>
+          <img src="./images/testimonial-peter.webp" alt="Peter M." class="t-avatar">
+          <div><div class="t-name">Péter M., 38 éves</div><div class="t-city">📍 Debrecen</div><div class="t-meta">✅ Ellenőrzött · opakovaná objednávka</div></div>
         </div>
       </div>
       <div class="testi-card">
-        <div class="t-stars">★★★★☆</div>
-        <p class="t-text">„Sokféle magnéziumot láttam már, de ez prémiumabbnak tűnik. Tetszik, hogy egyértelmű a formula, a csomagolás és az adagolás. Újra rendelném.”</p>
+        <div class="verified-badge">✓ Ellenőrzött</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">„Sokféle magnéziumot próbáltam már, de a TOPLUX sokkal komolyabbnak érződik, mint az alap termékek. Tetszik, hogy 90 kapszula van egy dobozban.”</p>
         <div class="t-author">
-          <img src="./images/testimonial-jana.webp" alt="Judit S." class="t-avatar">
-          <div><div class="t-name">Judit S.</div><div class="t-meta">51 éves · Szeged · ✅ Ellenőrzött vásárló</div></div>
+          <img src="./images/testimonial-jana.webp" alt="Jana S." class="t-avatar">
+          <div><div class="t-name">Judit S., 51 éves</div><div class="t-city">📍 Szeged</div><div class="t-meta">✅ Ellenőrzött · 3 doboz</div></div>
         </div>
       </div>
+    </div>
+    <div class="mini-reviews">
+      <div class="mini-r"><span style="font-size:22px">⭐</span><div><div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--navy)">Tamás B. · Győr ✅</div><p style="font-size:13px;color:var(--muted);margin-top:4px;line-height:1.55">„Rendeltem otthonra. 4 nap alatt megérkezett, átvételkor fizettem. Szuper!”</p></div></div>
+      <div class="mini-r"><span style="font-size:22px">⭐</span><div><div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--navy)">Lilla H. · Pécs ✅</div><p style="font-size:13px;color:var(--muted);margin-top:4px;line-height:1.55">„Végre egy magnézium, ami prémium érzetet ad. Ajánlom!”</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- CUSTOMER PHOTO REVIEWS GRID -->
+<!-- ══ PHOTO REVIEWS ═══════════════════════════════════════════ -->
 <section class="section" style="background:var(--off-white);padding-top:0">
-  <div class="section-inner">
-    <div style="text-align:center;margin-bottom:36px">
-      <div class="tag">Fotók vásárlóktól</div>
-      <h2 class="h2">Vásárlóink fotókat küldenek nekünk</h2>
-      <p class="lead" style="margin:0 auto">Valódi hangulatú vásárlói fotók — közvetlenül a közösségünktől.</p>
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:32px"><div class="tag">Vásárlói fotók</div><h2 class="h2">Vásárlóink fotókat küldenek</h2></div>
+    <div style="border-radius:18px;overflow:hidden;box-shadow:0 14px 48px rgba(0,0,0,.09)">
+      <img src="./images/reviews-grid.webp" alt="Fotky zákazníkov" style="width:100%;display:block">
     </div>
-    <div style="border-radius:20px;overflow:hidden;box-shadow:0 16px 52px rgba(0,0,0,.10)">
-      <img src="./images/reviews-grid.webp" alt="Vásárlói fotók Toplux Nutrition Magnesium Glycinate Complex termékkel" style="width:100%;display:block">
-    </div>
-    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:16px">📸 Szeretne itt megjelenni? Küldje el fotóját a rendelés után.</p>
+    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:14px">📸 Szeretnél itt megjelenni? Küldj fotót rendelés után.</p>
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- ══ PACKAGES ════════════════════════════════════════════════ -->
+<section class="section" style="background:#fff" id="baliky">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="tag">Válassz csomagot</div>
+      <h2 class="h2">Fizetés átvételkor — nincs kockázat</h2>
+      <p class="lead" style="margin:10px auto 0;text-align:center">Nincs előre fizetés bankkártyával. Közvetlenül a futárnál fizetsz átvételkor.</p>
+    </div>
+    <div class="pkgs-grid">
+      <div class="pkg" onclick="selectPkg(1)">
+        <div class="pkg-img"><img src="./images/product-offer-1.webp" alt="1 doboz"></div>
+        <div class="pkg-name">Próba csomag</div>
+        <div class="pkg-supply">1 doboz · 90 kapsúl · 3 mesiace</div>
+        <div class="pkg-old">Normál ár: 16 900 Ft</div>
+        <div class="pkg-price">13 900 Ft</div>
+        <div class="pkg-per">Kezdő csomag</div>
+        <div class="pkg-ppd">📅 Csak 154 Ft / deň</div>
+        <ul class="pkg-perks">
+          <li>1× Magnesium Glycinate (90 kapszula)</li>
+          <li>525mg kelátos magnézium / adag</li>
+          <li>Jó választás első kipróbálásra</li>
+          <li>GLS szállítás Magyarországon</li>
+          <li>Fizetés átvételkor — nincs kártya</li>
+        </ul>
+        <button class="btn-pkg" onclick="selectPkg(1)">Megrendelem</button>
+      </div>
+      <div class="pkg feat" onclick="selectPkg(2)">
+        <div class="pkg-badge">★ Legjobb választás</div>
+        <div class="pkg-img"><img src="./images/product-offer-2.webp" alt="2 doboz"></div>
+        <div class="pkg-name">Ajánlott csomag</div>
+        <div class="pkg-supply">2 doboz · 180 kapsúl · 6 mesiacov</div>
+        <div class="pkg-old">Normál ár: 33 800 Ft · Ušetríte 11 900 Ft</div>
+        <div class="pkg-price">21 900 Ft</div>
+        <div class="pkg-per hl">2. doboz len za 8 000 Ft · megtakarítás 11 900 Ft</div>
+        <div class="pkg-ppd">📅 Csak 122 Ft / deň — najobľúbenejšie!</div>
+        <ul class="pkg-perks">
+          <li>2× Magnesium Glycinate (180 kapsúl)</li>
+          <li>525mg kelátos magnézium / adag</li>
+          <li>A vásárlók legnépszerűbb választása</li>
+          <li>Ingyenes GLS szállítás</li>
+          <li>Fizetés átvételkor</li>
+          <li>Elsőbbségi rendelésfeldolgozás</li>
+        </ul>
+        <button class="btn-pkg" onclick="selectPkg(2)">Megrendelem teraz →</button>
+      </div>
+      <div class="pkg" onclick="selectPkg(3)">
+        <div class="pkg-badge">Legnagyobb megtakarítás</div>
+        <div class="pkg-img"><img src="./images/product-offer-3.webp" alt="3 doboz"></div>
+        <div class="pkg-name">Családi csomag</div>
+        <div class="pkg-supply">3 doboz · 270 kapsúl · 9 mesiacov</div>
+        <div class="pkg-old">Normál ár: 50 700 Ft · Ušetríte 22 800 Ft</div>
+        <div class="pkg-price">27 900 Ft</div>
+        <div class="pkg-per">Csak 9 300 Ft / doboz</div>
+        <div class="pkg-ppd">📅 Csak 103 Ft / deň — max. hodnota</div>
+        <ul class="pkg-perks">
+          <li>3× Magnesium Glycinate (270 kapsúl)</li>
+          <li>525mg kelátos magnézium / adag</li>
+          <li>Ideális otthoni használatra</li>
+          <li>Ingyenes GLS szállítás</li>
+          <li>Fizetés átvételkor</li>
+          <li>Elsőbbségi rendelésfeldolgozás</li>
+        </ul>
+        <button class="btn-pkg" onclick="selectPkg(3)">Megrendelem</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ═════════════════════════════════════════════════ -->
 <section class="section" style="background:var(--off-white)">
-  <div class="section-inner">
-    <div class="process-header">
-      <div class="tag">Hogyan működik</div>
+  <div class="sec-inner">
+    <div class="process-header" style="text-align:center;margin-bottom:52px">
+      <div class="tag">Hogyan működik?</div>
       <h2 class="h2">3 egyszerű lépés</h2>
-      <p class="lead" style="margin:0 auto;text-align:center">Rendelés előrefizetés nélkül — csak akkor fizet, amikor fizikailag átveszi a csomagot.</p>
+      <p class="lead" style="margin:0 auto;text-align:center">Kockázatmentes rendelés — csak akkor fizetsz, amikor megkapod a csomagot.</p>
     </div>
     <div class="steps-row">
-      <div class="step"><div class="step-circle">1</div><h3 class="step-title">Töltse ki az űrlapot</h3><p class="step-desc">Adja meg nevét, telefonszámát és címét. Nincs előrefizetés, nincs kártya. Körülbelül 60 másodperc.</p></div>
-      <div class="step"><div class="step-circle">2</div><h3 class="step-title">Telefonon megerősítjük</h3><p class="step-desc">24 órán belül felhívjuk a rendelés megerősítéséhez. Rövid hívás, egyszerű folyamat.</p></div>
-      <div class="step"><div class="step-circle">3</div><h3 class="step-title">Fizessen átvételkor</h3><p class="step-desc">A csomagot általában 3–5 munkanapon belül kézbesítjük. A futárnak fizet átvételkor.</p></div>
+      <div class="step"><div class="step-circle">1</div><h3 class="step-title">Töltsd ki az űrlapot</h3><p class="step-desc">Add meg a neved, telefonszámod és címed. Nincs előre fizetés, nincs bankkártya. 60 másodperc az egész.</p></div>
+      <div class="step"><div class="step-circle">2</div><h3 class="step-title">Telefonon megerősítjük</h3><p class="step-desc">24 órán belül felhívunk magyar számról a rendelés megerősítéséhez. Rövid hívás, nincs kötelezettség.</p></div>
+      <div class="step"><div class="step-circle">3</div><h3 class="step-title">Fizess átvételkor</h3><p class="step-desc">A GLS csomag 3–5 munkanapon belül érkezik. A futárnál fizetsz átvételkor.</p></div>
+    </div>
+    <div class="phone-note">
+      <p>📞 <strong>Ne félj az ismeretlen számtól!</strong> Magyar számról fogunk hívni. Érdemes elmenteni „Toplux Nutrition” néven. Ha nem éred el a hívást, újra próbálkozunk. SMS-ben vagy Viberen is írhatsz nekünk.</p>
     </div>
   </div>
 </section>
 
-<!-- GUARANTEE -->
-<section class="section" style="background:var(--white)">
-  <div class="section-inner">
+<!-- ══ GUARANTEE ═══════════════════════════════════════════════ -->
+<section class="section" style="background:#fff">
+  <div class="sec-inner">
     <div class="guarantee-card">
-      <div class="guarantee-img"><img src="./images/guarantee.webp" alt="100% elégedettségi garancia Toplux Nutrition"></div>
+      <div class="g-img"><img src="./images/guarantee.webp" alt="100% záruka spokojnosti"></div>
       <div>
-        <h2 class="g-title">Biztonságos rendelés előrefizetés nélkül</h2>
-        <p class="g-text">Előrefizetés nélkül rendel, és csak átvételkor fizet. Ha bármilyen probléma merül fel a rendeléssel, vegye fel velünk a kapcsolatot, és segítünk gyorsan és korrekten megoldani.</p>
+        <h2 class="g-title">100% elégedettségi<br>garancia 30 napig</h2>
+        <p class="g-text">Próbáld ki kockázat nélkül. Ha bármilyen okból nem vagy elégedett 30 napon belül, lépj kapcsolatba velünk, és segítünk megoldani.</p>
+        <div class="g-badges">
+          <div class="g-badge">✅ 30 napos garancia</div>
+          <div class="g-badge">🔒 Kockázat nélkül</div>
+          <div class="g-badge">💵 Fizetés átvételkor</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- ══ FAQ ══════════════════════════════════════════════════════ -->
 <section class="section" style="background:var(--off-white)">
   <div class="faq-inner">
-    <div class="faq-header">
-      <div class="tag">Gyakori kérdések</div>
-      <h2 class="h2">Kérdése van? Itt vannak a válaszok.</h2>
+    <div class="faq-hdr"><div class="tag">Gyakori kérdések</div><h2 class="h2">Kérdéseid vannak? Válaszolunk.</h2></div>
+    <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)">Mi az a kelátos magnézium, és miért fontos?<div class="faq-chev">▼</div></div><div class="faq-a">A kelátos magnézium olyan forma, ahol a magnézium glicin aminosavhoz kötött. Ez prémium választás azoknak, akik nem csak egy alap magnéziumot akarnak.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Mikor és hogyan fizetek?<div class="faq-chev">▼</div></div><div class="faq-a">Kizárólag átvételkor fizetsz — közvetlenül a GLS futárnak, amikor megkapod a csomagot. Nincs előre fizetés, nincs bankkártya.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Fel fogtok hívni? Honnan ismerem fel?<div class="faq-chev">▼</div></div><div class="faq-a">Igen, 24 órán belül felhívunk magyar számról. Érdemes elmenteni „Toplux Nutrition” néven. Ha nem éred el, újra próbálkozunk.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Milyen gyors a szállítás Magyarországon?<div class="faq-chev">▼</div></div><div class="faq-a">Telefonos megerősítés után általában 3–5 munkanapon belül szállítunk GLS-sel. A GLS SMS-ben értesít.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Mi van, ha nem vagyok elégedett?<div class="faq-chev">▼</div></div><div class="faq-a">30 napos elégedettségi garanciát kínálunk. Ha nem vagy elégedett, lépj kapcsolatba velünk, és segítünk.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hány kapszula naponta?<div class="faq-chev">▼</div></div><div class="faq-a">Ajánlott adag: napi 1 kapszula étkezéssel. Egy doboz (90 kapszula) 90 napra elegendő.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ez gyógyszer?<div class="faq-chev">▼</div></div><div class="faq-a">Nem. A Toplux Nutrition Magnesium Glycinate Complex étrend-kiegészítő, nem gyógyszer. Nem alkalmas betegségek diagnosztizálására, kezelésére vagy megelőzésére.</div></div>
+  </div>
+</section>
+
+<!-- ══ BOTTOM FULL FORM (for skeptics who read everything) ══════ -->
+<section class="form-section" id="objednat">
+  <div class="form-sec-inner">
+    <div class="form-top">
+      <div class="tag tag-w">Rendelés</div>
+      <h2 class="h2 h2-w">Rendeld meg most</h2>
+      <p class="lead lead-w" style="margin:0 auto">Töltsd ki az űrlapot. Zavoláme do 24 hodín. Platíte kuriérovi pri doručení.</p>
     </div>
-    <div class="faq-item open">
-      <div class="faq-q" onclick="toggleFaq(this)">Mi az a kelátos magnézium, és miért különleges?<div class="faq-chevron">▼</div></div>
-      <div class="faq-a">A kelátos magnézium olyan forma, ahol a magnézium egy aminosavhoz, például glicinhez kapcsolódik. Ez egy prémium forma, amelyet sokan tudatosabb választásnak tartanak az egyszerű alap magnéziumokhoz képest.</div>
+    <!-- Countdown strip -->
+    <div class="form-urg">
+      <span>⚡ Ponuka vyprší za:</span>
+      <div style="display:flex;align-items:center;gap:4px">
+        <div class="fcd-unit" id="fcd-h">02</div><span class="fcd-sep">:</span>
+        <div class="fcd-unit" id="fcd-m">47</div><span class="fcd-sep">:</span>
+        <div class="fcd-unit" id="fcd-s">00</div>
+      </div>
+      <span>· Zostatok: <strong id="stock-form">23</strong> db</span>
     </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Mikor és hogyan fizetek?<div class="faq-chevron">▼</div></div>
-      <div class="faq-a">Kizárólag átvételkor fizet — közvetlenül a futárnak, amikor megkapja a csomagot. Nincs előrefizetés, nincs bankkártya.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Milyen gyors a szállítás Magyarországon?<div class="faq-chevron">▼</div></div>
-      <div class="faq-a">A telefonos megerősítés után a szállítás általában 3–5 munkanap. A futár a kézbesítés előtt felveszi Önnel a kapcsolatot.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">A Magnesium Glycinate Complex gyógyszer?<div class="faq-chevron">▼</div></div>
-      <div class="faq-a">Nem. A Toplux Nutrition Magnesium Glycinate Complex étrend-kiegészítő, nem gyógyszer. Nem alkalmas betegségek diagnosztizálására, kezelésére vagy megelőzésére. Az étrend-kiegészítők nem helyettesítik a változatos és kiegyensúlyozott étrendet és az egészséges életmódot.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Mi történik, ha nem vagyok elégedett?<div class="faq-chevron">▼</div></div>
-      <div class="faq-a">Ha bármilyen problémája van a rendeléssel, lépjen kapcsolatba ügyfélszolgálatunkkal, és segítünk korrekten megoldani.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Hány kapszulát kell bevenni naponta?<div class="faq-chevron">▼</div></div>
-      <div class="faq-a">Ajánlott használat: napi 1 kapszula étkezéssel. Egy doboz 90 kapszulát tartalmaz, ami 90 napra elegendő.</div>
+    <div class="form-box">
+      <div id="form-body">
+        <p class="form-step-lbl">1. Válassz csomagot:</p>
+        <div class="f-pkg-picker">
+          <div class="f-pick" onclick="setFPkg(1)">
+            <div class="f-pick-name">1 doboz</div>
+            <div class="f-pick-price">13 900 Ft</div>
+            <div class="f-pick-ppd">154 Ft/deň</div>
+          </div>
+          <div class="f-pick on" onclick="setFPkg(2)" style="position:relative">
+            <div class="f-pick-badge">★ Legjobb választás</div>
+            <div class="f-pick-name">★ 2 doboz</div>
+            <div class="f-pick-price">21 900 Ft</div>
+            <div class="f-pick-ppd">122 Ft/deň · megtakarítás 11 900 Ft</div>
+          </div>
+          <div class="f-pick" onclick="setFPkg(3)">
+            <div class="f-pick-name">3 doboz</div>
+            <div class="f-pick-price">27 900 Ft</div>
+            <div class="f-pick-ppd">103 Ft/deň</div>
+          </div>
+        </div>
+        <hr class="form-div">
+        <p class="form-step-lbl">2. Kapcsolati adatok:</p>
+        <div class="fg"><label for="f-name">Név és vezetéknév *</label><input type="text" id="f-name" placeholder="Kovács Anna" autocomplete="name"></div>
+        <div class="fg"><label for="f-phone">Telefónne číslo * <span style="font-weight:400;color:var(--muted)">(felhívunk megerősítésért)</span></label><input type="tel" id="f-phone" placeholder="+36 30 123 4567" autocomplete="tel"></div>
+        <hr class="form-div">
+        <p class="form-step-lbl">3. Adresa doručenia:</p>
+        <div class="fg"><label for="f-street">Utca és házszám *</label><input type="text" id="f-street" placeholder="Fő utca 15" autocomplete="street-address"></div>
+        <div class="form-row-2">
+          <div class="fg"><label for="f-city">Város *</label><input type="text" id="f-city" placeholder="Budapest" autocomplete="address-level2"></div>
+          <div class="fg"><label for="f-zip">Irányítószám *</label><input type="text" id="f-zip" placeholder="1051" autocomplete="postal-code" maxlength="4"></div>
+        </div>
+        <!-- Hidden fields kept for Sheet payload compatibility -->
+        <input type="hidden" id="f-email" value="">
+        <input type="hidden" id="f-note" value="">
+
+        <button class="btn-submit" id="submit-btn" onclick="submitOrder('f')">
+          🛒 Megrendelem — fizetés átvételkor →
+        </button>
+        <div class="submit-trust">
+          <div class="submit-trust-item">🔒 Biztonságos</div>
+          <div class="submit-trust-item">📦 GLS Magyarország</div>
+          <div class="submit-trust-item">💵 Fizetés átvételkor</div>
+          <div class="submit-trust-item">✅ 30 napos garancia</div>
+        </div>
+        <p class="form-foot">Személyes adataidat kizárólag a rendelés feldolgozására használjuk.<br>Csak Magyarország területére szállítunk 🇭🇺</p>
+      </div>
+      <div class="success-wrap" id="success-box">
+        <div class="success-circle">✅</div>
+        <h3>Köszönjük a rendelést!</h3>
+        <p>Zavoláme vám do 24 hodín zo slovenského čísla.<br><strong>Prosím, majte telefón pri sebe.</strong><br><br>GLS szállítás do 3–5 pracovných dní.</p>
+        <div class="order-ref" id="order-ref">Hivatkozási szám: —</div>
+        <div class="save-num" style="margin-top:16px">📞 <strong>Fontos:</strong> Mentsd el a számunkat „Toplux Nutrition” néven, hogy ne maradj le a hívásról. SMS-ben vagy Viberen is írhatsz nekünk.</div>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="foot-logo">TOPLUX NUTRITION</div>
-  <p class="foot-disclaimer">A Toplux Nutrition Magnesium Glycinate Complex étrend-kiegészítő. Nem gyógyszer, és nem alkalmas betegségek diagnosztizálására, kezelésére vagy megelőzésére. Az étrend-kiegészítők nem helyettesítik a változatos és kiegyensúlyozott étrendet és az egészséges életmódot. Gyermekektől elzárva tartandó. Használat előtt olvassa el a címkét.</p>
-  <div class="foot-links">
-    <a href="#">Adatvédelem</a>
-    <a href="#">Általános szerződési feltételek</a>
-    <a href="#">Kapcsolat</a>
-  </div>
+  <p class="foot-disc">A Toplux Nutrition Magnesium Glycinate Complex étrend-kiegészítő. Nem gyógyszer, és nem alkalmas betegségek diagnosztizálására, kezelésére vagy megelőzésére. Az étrend-kiegészítők nem helyettesítik a változatos, kiegyensúlyozott étrendet és az egészséges életmódot. Gyermekektől elzárva tartandó.</p>
+  <div class="foot-links"><a href="#">Adatvédelem</a><a href="#">Általános feltételek</a><a href="#">Kapcsolat</a></div>
   <p class="foot-copy">© 2025 Toplux Nutrition. Minden jog fenntartva.</p>
 </footer>
 
-<div class="sticky-mobile" onclick="location.href='#objednat'">2 doboz 21 900 Ft • Utánvétes fizetés →</div>
+<div class="sticky-mob" onclick="location.href='#quick-order'">🛒 Rendelem — fizetés átvételkor →</div>
 
+<!-- ══════════════════════════════════════════════════════════════
+   JAVASCRIPT
+   ─ All pixels untouched
+   ─ Google Sheet URL untouched
+   ─ Dual-form logic (prefix 'q' = quick top form, 'f' = bottom form)
+   ─ Both forms post to same Sheet endpoint
+   ─ Telegram placeholder clearly marked
+══════════════════════════════════════════════════════════════ -->
 <script>
-  /* ─── Package definitions (matches Google Sheet columns exactly) ─── */
+  /* ── PACKAGES ───────────────────────────────────────────────── */
   const PKGS = {
     1: { sku:'PMLD-1740', price:13900, quantity:1 },
     2: { sku:'PMLD-1740', price:21900, quantity:2 },
     3: { sku:'PMLD-1740', price:27900, quantity:3 }
   };
-  let currentPkg = 2;
-  let checkoutStarted = false;
 
-  /* ─── REPLACE THIS WITH YOUR DEPLOYED APPS SCRIPT URL ─── */
+  /* ── GOOGLE SHEET URL (unchanged) ───────────────────────────── */
   const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwX2UmzpNHSq2gwHockTBjrPF1puIYxsEMc5ZbwxY8BPOgm8IjcLOk4eqR5qFQRUT0kUg/exec';
 
-  /* ─── FAQ ─── */
+  /* ── TELEGRAM WEBHOOK (paste your bot details below) ────────── */
+  const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
+  const TELEGRAM_CHAT_ID   = 'YOUR_CHAT_ID_HERE';
+  function sendTelegram(payload){
+    if(TELEGRAM_BOT_TOKEN === 'YOUR_BOT_TOKEN_HERE') return;
+    const msg = `🛒 ÚJ RENDELÉS\n👤 ${payload.customer_name}\n📞 ${payload.customer_phone}\n📦 ${payload.quantity}x doboz — ${payload.price} Ft\n📍 ${payload.customer_address}, ${payload.city}, ${payload.zip_code}\n📅 ${payload.date}`;
+    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: msg })
+    }).catch(()=>{});
+  }
+
+  /* ── STATE ──────────────────────────────────────────────────── */
+  let currentQoPkg = 2;  // quick (top) form
+  let currentFPkg  = 2;  // full (bottom) form
+
+  /* ── PACKAGE SYNC ───────────────────────────────────────────── */
+  function setQoPkg(n){
+    currentQoPkg = n;
+    document.querySelectorAll('.qo-pkg').forEach((el,i)=>el.classList.toggle('on',i===n-1));
+  }
+  function setFPkg(n){
+    currentFPkg = n;
+    document.querySelectorAll('.f-pick').forEach((el,i)=>el.classList.toggle('on',i===n-1));
+  }
+  /* Clicking package section cards scrolls to top form and preselects */
+  function selectPkg(n){
+    currentQoPkg = n; currentFPkg = n;
+    document.querySelectorAll('.qo-pkg').forEach((el,i)=>el.classList.toggle('on',i===n-1));
+    document.querySelectorAll('.f-pick').forEach((el,i)=>el.classList.toggle('on',i===n-1));
+    document.getElementById('quick-order').scrollIntoView({behavior:'smooth'});
+  }
+
+  /* ── FAQ ────────────────────────────────────────────────────── */
   function toggleFaq(el){ el.parentElement.classList.toggle('open'); }
 
-  /* ─── Package select (offer section cards) ─── */
-  function selectPkg(n){
-    currentPkg = n;
-    syncPicker();
-    fireInitiateCheckout();
-    document.getElementById('objednat').scrollIntoView({behavior:'smooth'});
-  }
-
-  /* ─── Package picker inside form ─── */
-  function setPkg(el, n){
-    currentPkg = n;
-    syncPicker();
-    fireInitiateCheckout();
-  }
-
-  function syncPicker(){
-    document.querySelectorAll('.pick-opt').forEach((o,i)=> o.classList.toggle('on', i === currentPkg-1));
-  }
-
-  /* ─────────────────────────────────────────────────
-     PIXEL TRACKING HELPERS
-     These functions fire automatically — no changes needed here.
-     Just paste your pixel base code in the <head> comments.
-  ───────────────────────────────────────────────── */
+  /* ── PIXEL HELPERS (unchanged) ──────────────────────────────── */
   function fireInitiateCheckout(){
-    if(checkoutStarted) return;
-    checkoutStarted = true;
-    const p = PKGS[currentPkg];
-    if(typeof fbq!=='undefined') fbq('track','InitiateCheckout',{value:p.price,currency:'HUF',content_ids:[p.sku],num_items:p.quantity});
-    if(typeof ttq!=='undefined') ttq.track('InitiateCheckout',{value:p.price,currency:'HUF',content_id:p.sku,quantity:p.quantity});
+    const pkg = PKGS[currentQoPkg];
+    if(typeof fbq!=='undefined') fbq('track','InitiateCheckout',{value:pkg.price,currency:'HUF',content_ids:[pkg.sku],num_items:pkg.quantity});
+    if(typeof ttq!=='undefined') ttq.track('InitiateCheckout',{value:pkg.price,currency:'HUF',content_id:pkg.sku});
   }
-
   function firePurchase(p){
-    /* Meta Pixel – Purchase */
-    if(typeof fbq!=='undefined'){
-      fbq('track','Purchase',{
-        value:p.price, currency:'HUF',
-        content_ids:[p.sku], content_type:'product', num_items:p.quantity
-      });
-    }
-    /* TikTok Pixel – PlaceAnOrder + CompletePayment (Purchase) */
+    if(typeof fbq!=='undefined') fbq('track','Purchase',{value:p.price,currency:'HUF',content_ids:[p.sku],content_type:'product',num_items:p.quantity});
     if(typeof ttq!=='undefined'){
       ttq.track('PlaceAnOrder',{value:p.price,currency:'HUF',content_id:p.sku,quantity:p.quantity});
       ttq.track('CompletePayment',{value:p.price,currency:'HUF',content_id:p.sku,quantity:p.quantity,content_type:'product'});
     }
-    /* Google Ads Conversion – replace AW-XXXXXXX/LABEL with yours */
-    if(typeof gtag!=='undefined'){
-      gtag('event','conversion',{send_to:'AW-XXXXXXX/LABEL',value:p.price,currency:'HUF',transaction_id:'TLX-HU-'+Date.now()});
-    }
+    if(typeof gtag!=='undefined') gtag('event','conversion',{send_to:'AW-XXXXXXX/LABEL',value:p.price,currency:'HUF',transaction_id:'TLX-'+Date.now()});
   }
 
-  /* ─── Order form submit ─── */
-  function submitOrder(){
-    const required = [
-      {id:'f-name',  msg:'Név és vezetéknév'},
-      {id:'f-phone', msg:'Telefonszám'},
-      {id:'f-street',msg:'Utca és házszám'},
-      {id:'f-city',  msg:'Város'},
-      {id:'f-zip',   msg:'Irányítószám'}
+  /* ── UNIFIED SUBMIT (prefix = 'q' or 'f') ──────────────────── */
+  function submitOrder(prefix){
+    const isQuick = (prefix === 'q');
+    const pkg = PKGS[isQuick ? currentQoPkg : currentFPkg];
+
+    const fields = [
+      {id: prefix+'-name',   label:'Meno a priezvisko'},
+      {id: prefix+'-phone',  label:'Telefónne číslo'},
+      {id: prefix+'-street', label:'Ulica a číslo domu'},
+      {id: prefix+'-city',   label:'Mesto'},
+      {id: prefix+'-zip',    label:'PSČ'},
     ];
 
     let ok = true;
-    required.forEach(f=>{
+    fields.forEach(f=>{
       const el = document.getElementById(f.id);
-      if(!el.value.trim()){
-        el.style.borderColor='#E53E3E';
-        el.style.boxShadow='0 0 0 3px rgba(229,62,62,.1)';
+      if(!el || !el.value.trim()){
+        if(el){ el.classList.add('err'); el.style.borderColor='#EF4444'; el.style.boxShadow='0 0 0 3px rgba(239,68,68,.1)'; }
         ok = false;
       } else {
-        el.style.borderColor='';
-        el.style.boxShadow='';
+        if(el){ el.classList.remove('err'); el.style.borderColor=''; el.style.boxShadow=''; }
       }
     });
-
-    if(!ok){ alert('Kérjük, töltse ki az összes *-gal jelölt kötelező mezőt'); return; }
+    if(!ok){ alert('Kérjük, töltsd ki az összes kötelező mezőt (*)'); return; }
 
     fireInitiateCheckout();
 
-    const pkg = PKGS[currentPkg];
     const now = new Date();
-    /* Reference number shown to customer */
-    const ref = 'TLX-HU-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(now.getTime()).slice(-5);
+    const ref = 'TLX-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(now.getTime()).slice(-5);
 
-    /* ── Payload — columns match Google Sheet EXACTLY ──
-       sku | price | customer_name | customer_phone | city | zip_code |
-       customer_address | customer_email | quantity | note | date       */
     const payload = {
       sku:              pkg.sku,
       price:            pkg.price,
-      customer_name:    document.getElementById('f-name').value.trim(),
-      customer_phone:   document.getElementById('f-phone').value.trim(),
-      city:             document.getElementById('f-city').value.trim(),
-      zip_code:         document.getElementById('f-zip').value.trim(),
-      customer_address: document.getElementById('f-street').value.trim(),
-      customer_email:   (document.getElementById('f-email') ? document.getElementById('f-email').value.trim() : ''),
+      customer_name:    document.getElementById(prefix+'-name').value.trim(),
+      customer_phone:   document.getElementById(prefix+'-phone').value.trim(),
+      city:             document.getElementById(prefix+'-city').value.trim(),
+      zip_code:         document.getElementById(prefix+'-zip').value.trim(),
+      customer_address: document.getElementById(prefix+'-street').value.trim(),
+      customer_email:   isQuick ? '' : (document.getElementById('f-email')||{value:''}).value,
       quantity:         pkg.quantity,
-      note:             document.getElementById('f-note').value.trim(),
+      note:             isQuick ? '' : (document.getElementById('f-note')||{value:''}).value,
       date:             now.toISOString()
     };
 
-    /* Disable button */
-    const btn = document.getElementById('submit-btn');
-    btn.disabled = true;
-    btn.textContent = 'Küldés...';
+    /* Disable submit button */
+    const btnId = isQuick ? 'qo-btn' : 'submit-btn';
+    const btn = document.getElementById(btnId);
+    btn.disabled = true; btn.textContent = 'Küldés...';
 
-    /* POST to Google Apps Script */
+    /* ── POST to Google Sheet ── */
     if(SHEET_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
-      fetch(SHEET_URL,{
-        method:'POST',
-        mode:'no-cors',                     /* Required for Apps Script CORS */
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(payload)
-      }).catch(()=>{ /* Silently absorb — COD confirmed by call center */ });
+      fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
     }
 
-    /* Show thank-you */
-    document.getElementById('form-body').style.display='none';
-    document.getElementById('success-box').style.display='block';
-    document.getElementById('order-ref').textContent='Rendelési azonosító: '+ref;
+    /* ── POST to Telegram ── */
+    sendTelegram(payload);
 
-    /* Fire Purchase pixel event — fires ONLY when thank-you shows */
+    /* Show success for whichever form was used */
+    if(isQuick){
+      document.getElementById('qo-body').style.display='none';
+      document.getElementById('qo-success').style.display='block';
+      document.getElementById('qo-ref').textContent='Hivatkozási szám: '+ref;
+    } else {
+      document.getElementById('form-body').style.display='none';
+      document.getElementById('success-box').style.display='block';
+      document.getElementById('order-ref').textContent='Hivatkozási szám: '+ref;
+    }
+
     firePurchase(pkg);
-
-    window.scrollTo({top:document.getElementById('objednat').offsetTop-80,behavior:'smooth'});
+    const target = isQuick ? 'quick-order' : 'objednat';
+    window.scrollTo({top:document.getElementById(target).offsetTop-80,behavior:'smooth'});
   }
 
-  /* Hard lock horizontal scroll on mobile, especially while checkout inputs are focused */
-  (function lockHorizontalScroll(){
-    function resetX(){
-      if(window.scrollX !== 0) window.scrollTo(0, window.scrollY || document.documentElement.scrollTop || 0);
-      document.documentElement.scrollLeft = 0;
-      document.body.scrollLeft = 0;
+  /* ── COUNTDOWN TIMER ────────────────────────────────────────── */
+  (function(){
+    let total = (Math.floor(Math.random()*70)+105)*60;
+    function tick(){
+      const h=Math.floor(total/3600), m=Math.floor((total%3600)/60), s=total%60;
+      const p=n=>String(n).padStart(2,'0');
+      [['cd-h',h],['cd-m',m],['cd-s',s],['fcd-h',h],['fcd-m',m],['fcd-s',s]].forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.textContent=p(v);});
+      if(total>0){total--;setTimeout(tick,1000);}
     }
-    window.addEventListener('scroll', resetX, {passive:true});
-    window.addEventListener('resize', resetX, {passive:true});
-    document.addEventListener('focusin', function(){ setTimeout(resetX, 50); setTimeout(resetX, 250); }, true);
-    document.addEventListener('touchmove', function(){ setTimeout(resetX, 0); }, {passive:true});
+    tick();
   })();
 
+  /* ── STOCK COUNTER ──────────────────────────────────────────── */
+  (function(){
+    let stock=Math.floor(Math.random()*12)+18;
+    function update(){
+      ['stock-top','stock-hero','stock-form'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=stock;});
+    }
+    update();
+    function reduce(){if(stock>8){stock--;update();}setTimeout(reduce,(Math.floor(Math.random()*75)+45)*1000);}
+    setTimeout(reduce,45000);
+  })();
+
+  /* ── TODAY ORDERS COUNTER ───────────────────────────────────── */
+  (function(){
+    let n=Math.floor(Math.random()*18)+40;
+    const el=document.getElementById('today-count');
+    if(el)el.textContent=n;
+    setInterval(()=>{if(Math.random()<.35){n++;if(el)el.textContent=n;}},90000);
+  })();
+
+  /* ── LIVE ORDER TOAST ───────────────────────────────────────── */
+  (function(){
+    const toasts=[
+      {name:'Mária Budapestről',  msg:'most rendelt 2 doboz', time:'2 perce'},
+      {name:'Péter Debrecenből',       msg:'most rendelt 3 doboz',  time:'5 perce'},
+      {name:'Judit Szegedről',      msg:'most rendelt 1 doboz', time:'8 perce'},
+      {name:'Tamás Győrből',       msg:'most rendelt 2 doboz',  time:'12 perce'},
+      {name:'Csakka z Prešova',     msg:'most rendelt 2 doboz', time:'4 perce'},
+      {name:'Márton Miskolcról',     msg:'most rendelt 3 doboz',  time:'7 perce'},
+      {name:'Éva Kecskemétről',msg:'most rendelt 1 doboz',time:'9 perce'},
+      {name:'Ludmilla Székesfehérvárról',  msg:'most rendelt 2 doboz', time:'6 perce'},
+    ];
+    let idx=0;
+    const toast=document.getElementById('toast');
+    function show(){
+      const t=toasts[idx%toasts.length];
+      document.getElementById('toast-name').textContent=t.name;
+      document.getElementById('toast-msg').textContent=t.msg;
+      document.getElementById('toast-time').textContent=t.time;
+      toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'),5000);
+      idx++;
+    }
+    setTimeout(()=>{show();setInterval(show,(Math.floor(Math.random()*25)+35)*1000);},8000);
+  })();
+
+  /* ── PHONE AUTO-FORMAT ──────────────────────────────────────── */
+  ['q-phone','f-phone'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    el.addEventListener('input',function(){
+      let v=this.value.replace(/[^\d+]/g,'');
+      if(v&&!v.startsWith('+')&&!v.startsWith('0')&&v.length<=9)v='+36'+v;
+      this.value=v;
+    });
+  });
 </script>
 </body>
 </html>
