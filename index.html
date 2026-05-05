@@ -599,6 +599,10 @@
           </div>
         </div>
         <div class="qo-fg">
+          <label for="q-email">E-mail *</label>
+          <input type="email" id="q-email" placeholder="vas@email.com" autocomplete="email">
+        </div>
+        <div class="qo-fg">
           <label for="q-street">Ulica a číslo domu *</label>
           <input type="text" id="q-street" placeholder="Hlavná 15" autocomplete="street-address">
         </div>
@@ -1103,6 +1107,7 @@
     const fields = [
       {id: prefix+'-name',   label:'Meno a priezvisko'},
       {id: prefix+'-phone',  label:'Telefónne číslo'},
+      ...(prefix === 'q' ? [{id:'q-email', label:'E-mail'}] : []),
       {id: prefix+'-street', label:'Ulica a číslo domu'},
       {id: prefix+'-city',   label:'Mesto'},
       {id: prefix+'-zip',    label:'PSČ'},
@@ -1133,7 +1138,7 @@
       city:             document.getElementById(prefix+'-city').value.trim(),
       zip_code:         document.getElementById(prefix+'-zip').value.trim(),
       customer_address: document.getElementById(prefix+'-street').value.trim(),
-      customer_email:   isQuick ? '' : (document.getElementById('f-email')||{value:''}).value,
+      customer_email:   isQuick ? (document.getElementById('q-email')||{value:''}).value.trim() : (document.getElementById('f-email')||{value:''}).value.trim(),
       quantity:         pkg.quantity,
       note:             isQuick ? '' : (document.getElementById('f-note')||{value:''}).value,
       date:             now.toISOString()
