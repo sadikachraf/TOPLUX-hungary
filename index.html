@@ -1046,14 +1046,14 @@
   };
 
   /* ── GOOGLE SHEET URL (unchanged) ───────────────────────────── */
-  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxc2SMK4BDOORt0GH3S4O-acVK49o6Njhx0O5Anm3grzXhtUq_9SYUZ6cqbIuxslaI/exec';
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwX2UmzpNHSq2gwHockTBjrPF1puIYxsEMc5ZbwxY8BPOgm8IjcLOk4eqR5qFQRUT0kUg/exec';
 
   /* ── TELEGRAM WEBHOOK (paste your bot details below) ────────── */
   const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
   const TELEGRAM_CHAT_ID   = 'YOUR_CHAT_ID_HERE';
   function sendTelegram(payload){
     if(TELEGRAM_BOT_TOKEN === 'YOUR_BOT_TOKEN_HERE') return;
-    const msg = `🛒 NOVÁ OBJEDNÁVKA\n👤 ${payload.customer_name}\n📞 ${payload.customer_phone}\n📦 ${payload.quantity}x doboz — ${payload.price} Ft\n📍 ${payload.customer_address}, ${payload.city}, ${payload.zip_code}\n📅 ${payload.date}`;
+    const msg = `🛒 ÚJ MAGYARORSZÁGI RENDELÉS\n👤 ${payload.customer_name}\n📞 ${payload.customer_phone}\n📦 ${payload.quantity}x doboz — ${payload.price} Ft\n📍 ${payload.customer_address}, ${payload.city}, ${payload.zip_code}\n📅 ${payload.date}`;
     fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,{
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: msg })
@@ -1087,14 +1087,14 @@
   /* ── PIXEL HELPERS (unchanged) ──────────────────────────────── */
   function fireInitiateCheckout(){
     const pkg = PKGS[currentQoPkg];
-    if(typeof fbq!=='undefined') fbq('track','InitiateCheckout',{value:pkg.price,currency:'EUR',content_ids:[pkg.sku],num_items:pkg.quantity});
-    if(typeof ttq!=='undefined') ttq.track('InitiateCheckout',{value:pkg.price,currency:'EUR',content_id:pkg.sku});
+    if(typeof fbq!=='undefined') fbq('track','InitiateCheckout',{value:pkg.price,currency:'HUF',content_ids:[pkg.sku],num_items:pkg.quantity});
+    if(typeof ttq!=='undefined') ttq.track('InitiateCheckout',{value:pkg.price,currency:'HUF',content_id:pkg.sku,quantity:pkg.quantity});
   }
   function firePurchase(p){
-    if(typeof fbq!=='undefined') fbq('track','Purchase',{value:p.price,currency:'EUR',content_ids:[p.sku],content_type:'product',num_items:p.quantity});
+    if(typeof fbq!=='undefined') fbq('track','Purchase',{value:p.price,currency:'HUF',content_ids:[p.sku],content_type:'product',num_items:p.quantity});
     if(typeof ttq!=='undefined'){
-      ttq.track('PlaceAnOrder',{value:p.price,currency:'EUR',content_id:p.sku,quantity:p.quantity});
-      ttq.track('CompletePayment',{value:p.price,currency:'EUR',content_id:p.sku,quantity:p.quantity,content_type:'product'});
+      ttq.track('PlaceAnOrder',{value:p.price,currency:'HUF',content_id:p.sku,quantity:p.quantity});
+      ttq.track('CompletePayment',{value:p.price,currency:'HUF',content_id:p.sku,quantity:p.quantity,content_type:'product'});
     }
     if(typeof gtag!=='undefined') gtag('event','conversion',{send_to:'AW-XXXXXXX/LABEL',value:p.price,currency:'HUF',transaction_id:'TLX-HU-'+Date.now()});
   }
