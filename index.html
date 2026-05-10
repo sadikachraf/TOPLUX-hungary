@@ -30,7 +30,7 @@
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=778731385018899&ev=PageView&noscript=1"/></noscript>
 
-  <!-- ═══ TIKTOK PIXEL : D6QB8PBC77U4MV0O9RP0 ══════════════ -->
+  <!-- ═══ TIKTOK PIXELS : D6QB8PBC77U4MV0O9RP0 + D2KM92JC77U9PLHEPTMG ══════════════ -->
   <script>
     !function(w,d,t){
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
@@ -47,6 +47,7 @@
         var a=d.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a)
       };
       ttq.load('D6QB8PBC77U4MV0O9RP0');
+      ttq.load('D2KM92JC77U9PLHEPTMG');
       ttq.page();
     }(window,document,'ttq');
   </script>
@@ -1081,6 +1082,7 @@
    JAVASCRIPT
    ─ Meta Pixel 778731385018899 ✓ untouched
    ─ TikTok Pixel D6QB8PBC77U4MV0O9RP0 ✓ untouched
+   ─ TikTok Pixel D2KM92JC77U9PLHEPTMG ✓ added with Purchase
    ─ GA4 G-KN2LD38C0S ✓ untouched
    ─ Google Sheet URL ✓ untouched
    ─ Telegram ✓ configured below
@@ -1162,6 +1164,7 @@
     if(typeof fbq!=='undefined') fbq('track','Purchase',{value:p.price,currency:'HUF',content_ids:[p.sku],content_type:'product',num_items:p.quantity});
     if(typeof ttq!=='undefined'){
       ttq.track('Purchase',{value:p.price,currency:'HUF',content_id:p.sku,quantity:p.quantity,content_type:'product'});
+      ttq.instance('D2KM92JC77U9PLHEPTMG').track('Purchase',{value:p.price,currency:'HUF',content_id:p.sku,quantity:p.quantity,content_type:'product'});
     }
     if(typeof gtag!=='undefined') gtag('event','conversion',{send_to:'AW-XXXXXXX/LABEL',value:p.price,currency:'HUF',transaction_id:'TLX-HU-'+Date.now()});
   }
