@@ -1457,30 +1457,29 @@
     if(!pendingPayload) return;
     const p = pendingPayload;
 
-    // Build comma-separated SKUs and quantities
-    let skus = [p.pkg.sku];           // PMLD-1740
-    let qtys = [p.pkg.quantity];
-    let prices = [p.pkg.price];
-    let noteparts = [];
+    // SKUs comma-separated
+    let skus = [p.pkg.sku];
+    if(p.bump) skus.push('PMLD-1746');
+    if(otoAccepted) skus.push('PMLD-1742');
 
-    if(p.bump){
-      skus.push('PMLD-1746');          // Nerve Health
-      qtys.push(1);
-      prices.push(3490);
-      noteparts.push('BUMP: Nerve Health +3490Ft');
-    }
-    if(otoAccepted){
-      skus.push('PMLD-1742');          // Nitric Oxide
-      qtys.push(1);
-      prices.push(2990);
-      noteparts.push('OTO: Nitric Oxide +2990Ft');
-    }
+    // Total price
+    let totalPrice = p.pkg.price;
+    if(p.bump) totalPrice += 3490;
+    if(otoAccepted) totalPrice += 2990;
 
-    const totalPrice = prices.reduce((a,b)=>a+b,0);
+    // Notes — full human-readable breakdown
+    const pkgNames={1:'Kipróbáló csomag',2:'Ajánlott csomag',3:'Legjobb értékű csomag',4:'Páros csomag'};
+    const pkgKey = p.pkg.quantity <= 1 ? 1 : p.pkg.quantity <= 2 ? 2 : p.pkg.quantity <= 3 ? 3 : 4;
+    let noteLines = [];
+    noteLines.push(`Magnesium Glycinate (${pkgNames[pkgKey]}) x${p.pkg.quantity} = ${p.pkg.price.toLocaleString('hu-HU')} Ft`);
+    if(p.bump) noteLines.push(`Nerve Health (PMLD-1746) x1 = 3 490 Ft`);
+    if(otoAccepted) noteLines.push(`Nitric Oxide Booster (PMLD-1742) x1 = 2 990 Ft`);
+    noteLines.push(`ÖSSZESEN: ${totalPrice.toLocaleString('hu-HU')} Ft`);
+    if(p.downsell) noteLines.push(`DOWNSELL ár alkalmazva`);
 
     const payload={
       sku:             skus.join(','),
-      quantity:        qtys.join(','),
+      quantity:        p.pkg.quantity,   // main product quantity only
       price:           totalPrice,
       customer_name:   p.customer_name,
       customer_phone:  p.customer_phone,
@@ -1488,7 +1487,7 @@
       customer_address:p.customer_address,
       city:            p.city,
       zip_code:        p.zip_code,
-      note:            noteparts.join(' | ') || '',
+      note:            noteLines.join(' | '),
       ref:             p.ref,
       date:            p.date
     };
@@ -1496,7 +1495,7 @@
     if(SHEET_URL!=='YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
       fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
     }
-    pendingPayload = null; // clear so beforeunload doesn't double-send
+    pendingPayload = null;
   }
 
   /* ── OTO ACCEPT / DECLINE ────────────────────────────────── */
@@ -1635,15 +1634,13 @@
     document.body.style.overflow='';
   }
   function claimExitOffer(){
-    // Pre-select 1 box + flag discount in note
     currentPdpPkg=1; currentFPkg=1;
     setPdpPkg(1); setFPkg(1);
-    // store discount flag
+    if(pendingPayload) pendingPayload.downsell=true;
     const fn=document.getElementById('f-note');
     if(fn) fn.value='DOWNSELL: 1box@7990Ft';
     closeExitIntent();
     document.getElementById('pdp').scrollIntoView({behavior:'smooth'});
-    // Visual highlight on PDP
     setTimeout(()=>{
       const btn=document.getElementById('pdp-btn');
       if(btn){btn.style.background='#16a34a';btn.textContent='🎉 Kedvezmény alkalmazva — Megrendelés!';}
