@@ -1152,13 +1152,23 @@
 
   /* ── PDP PACKAGE SELECTOR (4 options) ───────────────────── */
   const DISPLAY_PRICES = {1:'9 990 Ft', 2:'16 990 Ft', 3:'21 990 Ft', 4:'27 990 Ft'};
+  const DISPLAY_PRICES_DISC = {1:'8 990 Ft', 2:'15 290 Ft', 3:'19 790 Ft', 4:'25 190 Ft'};
   const DISPLAY_SAVES  = {1:'Megtakarítás 5 000 Ft', 2:'Megtakarítás 12 990 Ft', 3:'Megtakarítás 22 980 Ft', 4:'Megtakarítás 31 970 Ft'};
+  const DISPLAY_SAVES_DISC = {1:'−10% kedvezmény alkalmazva ✓', 2:'−10% kedvezmény alkalmazva ✓', 3:'−10% kedvezmény alkalmazva ✓', 4:'−10% kedvezmény alkalmazva ✓'};
   const DISPLAY_PPD    = {
     1:'📅 Csak kb. 111 Ft / nap — olcsóbb, mint egy kávé',
     2:'📅 Csak kb. 94 Ft / nap — legnépszerűbb!',
     3:'📅 Csak kb. 81 Ft / nap — legjobb érték',
     4:'📅 Csak kb. 78 Ft / nap — páros / éves csomag'
   };
+  const DISPLAY_PPD_DISC = {
+    1:'📅 Csak kb. 100 Ft / nap — −10% kedvezmény',
+    2:'📅 Csak kb. 85 Ft / nap — −10% kedvezmény',
+    3:'📅 Csak kb. 73 Ft / nap — −10% kedvezmény',
+    4:'📅 Csak kb. 70 Ft / nap — −10% kedvezmény'
+  };
+
+  let discountActive = false;
 
   function setPdpPkg(n){
     currentPdpPkg = n;
@@ -1166,9 +1176,9 @@
     const pr = document.getElementById('pdp-display-price');
     const sv = document.getElementById('pdp-display-save');
     const pp = document.getElementById('pdp-display-ppd');
-    if(pr) pr.textContent = DISPLAY_PRICES[n];
-    if(sv) sv.textContent = DISPLAY_SAVES[n];
-    if(pp) pp.textContent = DISPLAY_PPD[n];
+    if(pr) pr.textContent = discountActive ? DISPLAY_PRICES_DISC[n] : DISPLAY_PRICES[n];
+    if(sv) sv.textContent = discountActive ? DISPLAY_SAVES_DISC[n] : DISPLAY_SAVES[n];
+    if(pp) pp.textContent = discountActive ? DISPLAY_PPD_DISC[n] : DISPLAY_PPD[n];
   }
 
   function setFPkg(n){
@@ -1470,7 +1480,8 @@
   const DISCOUNT_PRICES={1:8990,2:15290,3:19790,4:25190};
 
   function claimExitOffer(n){
-    // Apply discount to PKGS so submitOrder uses discounted price
+    // Activate discount mode globally
+    discountActive = true;
     PKGS[1].price=8990; PKGS[2].price=15290;
     PKGS[3].price=19790; PKGS[4].price=25190;
 
