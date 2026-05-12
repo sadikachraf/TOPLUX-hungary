@@ -462,13 +462,13 @@
     }
 
     /* ════════ SOCIAL PROOF TICKER ════════════════════════════ */
-    .sp-ticker{background:var(--navy);overflow:hidden;padding:0;border-bottom:1px solid rgba(255,255,255,.08)}
-    .sp-track{display:flex;animation:tickerScroll 40s linear infinite;white-space:nowrap;align-items:center}
+    .sp-ticker{background:var(--navy);overflow:hidden;height:34px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.07)}
+    .sp-track{display:flex;align-items:center;animation:tickerScroll 44s linear infinite;width:max-content;flex-wrap:nowrap}
     .sp-ticker:hover .sp-track{animation-play-state:paused}
     @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    .sp-item{display:inline-flex;align-items:center;gap:7px;padding:9px 32px;font-size:12px;color:rgba(255,255,255,.82);font-family:'Montserrat',sans-serif;font-weight:600;white-space:nowrap}
-    .sp-dot{width:6px;height:6px;min-width:6px;background:#22c55e;border-radius:50%;animation:blink 1.4s ease-in-out infinite}
-    .sp-sep{color:rgba(255,255,255,.22);padding:0 8px;font-size:16px}
+    .sp-item{display:inline-flex;align-items:center;gap:7px;padding:0 24px;font-size:11.5px;color:rgba(255,255,255,.8);font-family:'Montserrat',sans-serif;font-weight:600;white-space:nowrap;flex-shrink:0}
+    .sp-dot{width:6px;height:6px;min-width:6px;background:#22c55e;border-radius:50%;animation:blink 1.4s ease-in-out infinite;flex-shrink:0}
+    .sp-sep{color:rgba(255,255,255,.2);font-size:14px;flex-shrink:0;line-height:1}
 
     /* ════════ EXIT INTENT OVERLAY ════════════════════════════ */
     .ei-overlay{position:fixed;inset:0;background:rgba(10,20,50,.82);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;padding:16px}
@@ -1378,6 +1378,8 @@
   }
 
   /* ── UNIFIED SUBMIT ──────────────────────────────────────── */
+  let pendingPayload = null; // holds order data until OTO decision
+
   function submitOrder(prefix){
     const isPdp=(prefix==='p');
     const pkg=PKGS[isPdp ? currentPdpPkg : currentFPkg];
@@ -1407,36 +1409,31 @@
     const now=new Date();
     currentRef='TLX-HU-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(now.getTime()).slice(-5);
 
-    // Build note with bump flag
-    let noteText = '';
-    if(bumpChecked[prefix]) noteText += 'BUMP: Nerve Health +3490Ft. ';
-    if(!isPdp){ const fn=document.getElementById('f-note'); if(fn&&fn.value) noteText+=fn.value; }
+    const emailEl=document.getElementById(prefix+'-email');
 
-    const payload={
-      sku:pkg.sku, price:pkg.price,
+    // Store payload — do NOT send yet, wait for OTO decision
+    pendingPayload={
+      prefix,
+      pkg,
       customer_name:   document.getElementById(prefix+'-name').value.trim(),
       customer_phone:  document.getElementById(prefix+'-phone').value.trim(),
+      customer_email:  emailEl ? emailEl.value.trim() : '',
+      customer_address:document.getElementById(prefix+'-street').value.trim(),
       city:            document.getElementById(prefix+'-city').value.trim(),
       zip_code:        document.getElementById(prefix+'-zip').value.trim(),
-      customer_address:document.getElementById(prefix+'-street').value.trim(),
-      customer_email:  document.getElementById(prefix+'-email').value.trim(),
-      quantity:        pkg.quantity,
-      note:            noteText,
-      date:            now.toISOString()
+      bump:            bumpChecked[prefix],
+      date:            now.toISOString(),
+      ref:             currentRef
     };
 
     const btnId=isPdp?'pdp-btn':'submit-btn';
     const btn=document.getElementById(btnId);
     btn.disabled=true; btn.textContent='Küldés...';
-    orderDone=true; // suppress exit intent after purchase
+    orderDone=true;
 
-    if(SHEET_URL!=='YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
-      fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
-    }
-    sendTelegram(payload);
     firePurchase(pkg);
 
-    // Show OTO instead of success directly
+    // Show OTO — nothing sent to sheet yet
     if(isPdp){
       document.getElementById('pdp-body').style.display='none';
       document.getElementById('pdp-oto').style.display='block';
@@ -1445,7 +1442,6 @@
       document.getElementById('form-oto').style.display='block';
     }
 
-    // Scroll to OTO
     setTimeout(()=>{
       const otoEl=document.getElementById(isPdp?'pdp-oto':'form-oto');
       if(otoEl){
@@ -1456,23 +1452,70 @@
     },80);
   }
 
+  /* ── BUILD & SEND FINAL COMBINED ORDER ───────────────────── */
+  function sendCombinedOrder(otoAccepted){
+    if(!pendingPayload) return;
+    const p = pendingPayload;
+
+    // Build comma-separated SKUs and quantities
+    let skus = [p.pkg.sku];           // PMLD-1740
+    let qtys = [p.pkg.quantity];
+    let prices = [p.pkg.price];
+    let noteparts = [];
+
+    if(p.bump){
+      skus.push('PMLD-1746');          // Nerve Health
+      qtys.push(1);
+      prices.push(3490);
+      noteparts.push('BUMP: Nerve Health +3490Ft');
+    }
+    if(otoAccepted){
+      skus.push('PMLD-1742');          // Nitric Oxide
+      qtys.push(1);
+      prices.push(2990);
+      noteparts.push('OTO: Nitric Oxide +2990Ft');
+    }
+
+    const totalPrice = prices.reduce((a,b)=>a+b,0);
+
+    const payload={
+      sku:             skus.join(','),
+      quantity:        qtys.join(','),
+      price:           totalPrice,
+      customer_name:   p.customer_name,
+      customer_phone:  p.customer_phone,
+      customer_email:  p.customer_email,
+      customer_address:p.customer_address,
+      city:            p.city,
+      zip_code:        p.zip_code,
+      note:            noteparts.join(' | ') || '',
+      ref:             p.ref,
+      date:            p.date
+    };
+
+    if(SHEET_URL!=='YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
+      fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
+    }
+    pendingPayload = null; // clear so beforeunload doesn't double-send
+  }
+
   /* ── OTO ACCEPT / DECLINE ────────────────────────────────── */
   function acceptOto(prefix){
-    const otoPayload={
-      sku:'SNAP-NO-60', price:2990, quantity:1,
-      customer_note:'OTO_ACCEPTED: Nitric Oxide Booster +2990Ft',
-      original_ref: currentRef,
-      date: new Date().toISOString()
-    };
-    if(SHEET_URL!=='YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
-      fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(otoPayload)}).catch(()=>{});
-    }
+    sendCombinedOrder(true);   // main + bump (if checked) + OTO
     showFinalThankYou(prefix);
   }
 
   function declineOto(prefix){
+    sendCombinedOrder(false);  // main + bump (if checked), no OTO
     showFinalThankYou(prefix);
   }
+
+  // If user closes page during OTO — send what we have
+  window.addEventListener('beforeunload', ()=>{
+    if(pendingPayload){
+      sendCombinedOrder(false);
+    }
+  });
 
   function showFinalThankYou(prefix){
     const isPdp=(prefix==='p');
