@@ -524,20 +524,43 @@
 </head>
 <body>
 
-<!-- ══ EXIT INTENT POPUP — Downsell 1 box at 7,990 Ft ═════════ -->
+<!-- ══ EXIT INTENT POPUP — 10% off all packages ════════════════ -->
 <div class="ei-overlay" id="ei-overlay">
   <div class="ei-box">
     <button class="ei-close" onclick="closeExitIntent()" aria-label="Bezárás">✕</button>
     <div class="ei-badge">⚡ Csak ma — Kilépési ajánlat</div>
-    <img src="images/product-offer-1.webp" alt="1 doboz Toplux Magnesium Glycinate" class="ei-product-img">
-    <h3 class="ei-title">Várjon! Ne menjen el<br>üres kézzel.</h3>
-    <p class="ei-sub">Speciális kedvezmény csak azoknak, akik most távoznának — <strong>1 doboz 20%-kal olcsóbban</strong>, utánvétes fizetéssel.</p>
-    <div class="ei-price-row">
-      <div class="ei-old-price">9 990 Ft</div>
-      <div class="ei-new-price">7 990 Ft</div>
-      <div class="ei-save-pill">−20%</div>
+    <h3 class="ei-title">Várjon! Mielőtt elmegy —<br>10% kedvezmény minden csomagra.</h3>
+    <p class="ei-sub">Válasszon csomagot kedvezményes áron. Az ajánlat csak ma érvényes, utánvétes fizetéssel.</p>
+
+    <!-- Package options inside popup -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px">
+      <div class="ei-pkg" onclick="claimExitOffer(1)" style="border:2px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .18s">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--navy);margin-bottom:3px">1 doboz</div>
+        <div style="font-size:10px;color:#9CA3AF;text-decoration:line-through;font-family:'Montserrat',sans-serif">9 990 Ft</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;color:var(--teal)">8 990 Ft</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">111→100 Ft/nap</div>
+      </div>
+      <div class="ei-pkg" onclick="claimExitOffer(2)" style="border:2px solid var(--teal);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;background:var(--light-teal);transition:all .18s;position:relative">
+        <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:8px;padding:2px 9px;border-radius:18px;white-space:nowrap">★ Legnépszerűbb</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--navy);margin-bottom:3px">2 doboz</div>
+        <div style="font-size:10px;color:#9CA3AF;text-decoration:line-through;font-family:'Montserrat',sans-serif">16 990 Ft</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;color:var(--teal)">15 290 Ft</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">94→85 Ft/nap</div>
+      </div>
+      <div class="ei-pkg" onclick="claimExitOffer(3)" style="border:2px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .18s">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--navy);margin-bottom:3px">3 doboz</div>
+        <div style="font-size:10px;color:#9CA3AF;text-decoration:line-through;font-family:'Montserrat',sans-serif">21 990 Ft</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;color:var(--teal)">19 790 Ft</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">81→73 Ft/nap</div>
+      </div>
+      <div class="ei-pkg" onclick="claimExitOffer(4)" style="border:2px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .18s">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--navy);margin-bottom:3px">4 doboz 👫</div>
+        <div style="font-size:10px;color:#9CA3AF;text-decoration:line-through;font-family:'Montserrat',sans-serif">27 990 Ft</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;color:var(--teal)">25 190 Ft</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">78→70 Ft/nap</div>
+      </div>
     </div>
-    <button class="ei-claim-btn" onclick="claimExitOffer()">🛒 Igen, kérem a kedvezményt!</button>
+
     <button class="ei-no" onclick="closeExitIntent()">Nem köszönöm, lemondok erről az ajánlatról</button>
     <div class="ei-trust">
       <div class="ei-trust-item">💵 Fizetés átvételkor</div>
@@ -1275,7 +1298,7 @@
     if(p.bump) noteLines.push(`Nerve Health (PMLD-1746) x1 = 3 490 Ft`);
     if(otoAccepted) noteLines.push(`Nitric Oxide Booster (PMLD-1742) x1 = 2 990 Ft`);
     noteLines.push(`ÖSSZESEN: ${totalPrice.toLocaleString('hu-HU')} Ft`);
-    if(p.downsell) noteLines.push(`DOWNSELL ár alkalmazva`);
+    if(window._exitDiscount) noteLines.push(`EXIT DISCOUNT −10% alkalmazva`);
 
     const payload={
       sku:             skus.join(','),
@@ -1420,10 +1443,19 @@
   let exitShown=false;
   let pageTimeOk=false;
   let orderDone=false;
+  let pdpScrolledPast=false;
   setTimeout(()=>pageTimeOk=true, 8000);
 
+  // Only arm after user has scrolled 80% past the PDP section
+  window.addEventListener('scroll',()=>{
+    if(pdpScrolledPast) return;
+    const pdp=document.getElementById('pdp');
+    if(!pdp) return;
+    if(pdp.getBoundingClientRect().bottom < window.innerHeight*0.2) pdpScrolledPast=true;
+  },{passive:true});
+
   function showExitIntent(){
-    if(exitShown||!pageTimeOk||orderDone)return;
+    if(exitShown||!pageTimeOk||orderDone||!pdpScrolledPast) return;
     exitShown=true;
     document.getElementById('ei-overlay').classList.add('show');
     document.body.style.overflow='hidden';
@@ -1433,26 +1465,52 @@
     document.getElementById('ei-overlay').classList.remove('show');
     document.body.style.overflow='';
   }
-  function claimExitOffer(){
-    currentPdpPkg=1; currentFPkg=1;
-    setPdpPkg(1); setFPkg(1);
-    if(pendingPayload) pendingPayload.downsell=true;
-    const fn=document.getElementById('f-note');
-    if(fn) fn.value='DOWNSELL: 1box@7990Ft';
+
+  // 10% discounted prices per package — charm pricing
+  const DISCOUNT_PRICES={1:8990,2:15290,3:19790,4:25190};
+
+  function claimExitOffer(n){
+    // Apply discount to PKGS so submitOrder uses discounted price
+    PKGS[1].price=8990; PKGS[2].price=15290;
+    PKGS[3].price=19790; PKGS[4].price=25190;
+
+    currentPdpPkg=n;
+    setPdpPkg(n);
+
+    // Update PDP package picker tiles
+    const pdpPkgs=document.querySelectorAll('.pdp-pkg');
+    const pdpNews=['8 990 Ft','15 290 Ft','19 790 Ft','25 190 Ft'];
+    const pdpPpds=['100 Ft/nap · −10%','85 Ft/nap · −10%','73 Ft/nap · −10%','70 Ft/nap · −10%'];
+    pdpPkgs.forEach((pkg,i)=>{
+      const priceEl=pkg.querySelector('.pdp-pkg-price');
+      const ppdEl=pkg.querySelector('.pdp-pkg-ppd');
+      if(priceEl) priceEl.textContent=pdpNews[i];
+      if(ppdEl) ppdEl.textContent=pdpPpds[i];
+    });
+
+    // Update main price display
+    const pr=document.getElementById('pdp-display-price');
+    if(pr) pr.textContent=DISCOUNT_PRICES[n].toLocaleString('hu-HU')+' Ft';
+    const sv=document.getElementById('pdp-display-save');
+    if(sv) sv.textContent='−10% kedvezmény alkalmazva ✓';
+
+    // Store for note
+    window._exitDiscount={pkg:n,price:DISCOUNT_PRICES[n]};
     closeExitIntent();
     document.getElementById('pdp').scrollIntoView({behavior:'smooth'});
     setTimeout(()=>{
       const btn=document.getElementById('pdp-btn');
-      if(btn){btn.style.background='#16a34a';btn.textContent='🎉 Kedvezmény alkalmazva — Megrendelés!';}
-      setTimeout(()=>{if(btn){btn.style.background='';btn.textContent='🛒 Megrendelés — utánvéttel fizetek →';}},4000);
+      if(btn){
+        btn.style.background='#16a34a';
+        btn.textContent='🎉 −10% alkalmazva — Megrendelés most!';
+        setTimeout(()=>{btn.style.background='';btn.textContent='🛒 Megrendelés — utánvéttel fizetek →';},5000);
+      }
     },600);
   }
 
-  // Desktop exit intent: mouse leaves toward top
-  document.addEventListener('mouseleave',(e)=>{
-    if(e.clientY<=5) showExitIntent();
-  });
-  // Mobile: rapid scroll up after scrolling down 300px
+  // Desktop: mouse toward top of browser
+  document.addEventListener('mouseleave',(e)=>{if(e.clientY<=5) showExitIntent();});
+  // Mobile: rapid scroll up
   (function(){
     let lastY=0,scrolled=false;
     window.addEventListener('scroll',()=>{
@@ -1462,7 +1520,7 @@
       lastY=y;
     },{passive:true});
   })();
-  // Tab hidden (switching tabs / hitting back button on mobile)
+  // Tab switch / back button
   document.addEventListener('visibilitychange',()=>{
     if(document.visibilityState==='hidden') showExitIntent();
   });
